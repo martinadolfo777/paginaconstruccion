@@ -1,33 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Constructiva Pro - Producción</title>
-  <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8" />
+    <title>Mi App React</title>
+
+    <!-- React y ReactDOM -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <!-- Babel para interpretar JSX en el navegador -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
-<body class="bg-gray-50 text-gray-800 min-h-screen">
-  <div id="root"></div>
+<body>
 
-  <script>
-    const e = React.createElement;
+    <!-- Lugar donde React dibuja -->
+    <div id="root"></div>
 
-    function App() {
-      return e('div', { className: 'p-6 max-w-4xl mx-auto' }, [
-        e('header', { className: 'text-center mb-8' }, [
-          e('h1', { className: 'text-3xl font-bold' }, 'Constructiva Pro'),
-          e('p', { className: 'text-slate-600' }, 'Versión HTML optimizada para producción — sin JSX.')
-        ]),
-        e('section', { className: 'bg-white p-6 rounded shadow' }, [
-          e('h2', { className: 'text-xl font-semibold' }, 'Demo de Producción'),
-          e('p', { className: 'mt-2 text-slate-700' }, 'Esta versión está renderizada usando React sin JSX, lista para integrarse con Stripe.')
-        ])
-      ]);
-    }
+    <!-- Tu archivo JSX -->
+    <script type="text/babel" src="app.jsx"></script>
 
-    ReactDOM.createRoot(document.getElementById('root')).render(e(App));
-  </script>
 </body>
 </html>
