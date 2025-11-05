@@ -1,23 +1,358 @@
-<!DOCTYPE html>
+<!--
+  Martin Adolfo - Landing page (Single-file HTML)
+  ------------------------------------------------
+  Comentarios estratégicos (resumen estilo Harvard):
+
+  Tesis de valor:
+  "Martin Adolfo será una plataforma de suscripción que provee formación técnica continua,
+  herramientas aplicadas y recursos descargables para ingenieros y arquitectos, con
+  fuerte enfoque en aplicación práctica y escalabilidad." 
+
+  Argumento (breve):
+  1. Problema: conocimiento técnico disperso y poca integración entre teoría y obra.
+  2. Propuesta: un ecosistema centralizado (cursos, toolbox, biblioteca BIM, comunidad)
+     con acceso por suscripción y opciones de compra puntual.
+  3. Evidencia: materiales reutilizables, plantillas, certificaciones y un modelo de
+     recomendación que aumenta retención (análogo a plataformas de contenido).
+  4. Conclusión: la combinación de contenido recurrente + productos descargables +
+     certificaciones crea flujos de ingreso diversificados y escalables.
+
+  Modelo de ingresos (resumido): suscripción mensual/anual, ventas puntuales, cursos
+  certificados y marketplace para terceros.
+-->
+
+<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <title>Mi App React</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Martin Adolfo — Constructiva Pro</title>
+  <meta name="description" content="Constructiva Pro by Martin Adolfo — Cursos, herramientas y biblioteca premium para ingeniería civil y arquitectura.">
+  <meta name="author" content="Martin Adolfo">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>MA</text></svg>">
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --accent:#f5af19; --muted:#9aa7b2; --glass:rgba(255,255,255,0.04);
+      --maxw:1100px; --radius:12px; --fw-semibold:600;
+      --ff-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:var(--ff-sans);background:linear-gradient(180deg,#071028 0%,#07101a 60%);color:#e6eef6;-webkit-font-smoothing:antialiased}
+    .container{max-width:var(--maxw);margin:0 auto;padding:2rem}
 
-    <!-- React y ReactDOM -->
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    /* Header */
+    header{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
+    .brand{display:flex;align-items:center;gap:0.75rem}
+    .logo{width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#1e3d59);display:flex;align-items:center;justify-content:center;font-weight:800;color:#072033}
+    nav{display:flex;gap:1rem;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;padding:0.5rem 0.75rem;border-radius:8px}
+    nav a.cta{background:var(--accent);color:#072033;font-weight:600}
+    nav a:hover{opacity:0.9}
 
-    <!-- Babel para interpretar JSX en el navegador -->
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:2rem;align-items:center;padding:2.5rem 0}
+    .hero h1{font-size:2.1rem;margin:0 0 0.6rem;color:#ffffff}
+    .hero p{margin:0 0 1.25rem;color:var(--muted);line-height:1.5}
+    .actions{display:flex;gap:1rem}
+    .btn{background:var(--accent);border:none;padding:0.9rem 1.25rem;border-radius:10px;font-weight:700;cursor:pointer}
+    .btn.secondary{background:transparent;color:var(--accent);border:1px solid rgba(245,175,25,0.12)}
+
+    /* Card */
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:var(--radius);padding:1.25rem;box-shadow:0 6px 24px rgba(3,8,18,0.6)}
+
+    /* Feature list */
+    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem}
+    .feature{padding:1rem;border-radius:10px;background:var(--glass);border:1px solid rgba(255,255,255,0.02)}
+    .feature h4{margin:0 0 0.5rem}
+    .muted{color:var(--muted);font-size:0.95rem}
+
+    /* Pricing */
+    .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2rem 0}
+    .price-card{padding:1.25rem;border-radius:12px;background:#071227;border:1px solid rgba(255,255,255,0.03)}
+    .price{font-size:1.4rem;font-weight:800}
+    .price small{display:block;color:var(--muted);font-weight:500}
+
+    /* Grid sections */
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+
+    /* Footer */
+    footer{margin-top:2.5rem;border-top:1px solid rgba(255,255,255,0.03);padding:1.5rem 0;color:var(--muted);font-size:0.95rem}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .features{grid-template-columns:repeat(2,1fr)}
+      .pricing{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+      nav{display:none}
+    }
+
+    /* small utility */
+    .pill{display:inline-block;padding:0.25rem 0.6rem;border-radius:999px;background:rgba(245,175,25,0.12);color:var(--accent);font-weight:700;font-size:0.85rem}
+    .kicker{color:var(--muted);text-transform:uppercase;font-weight:700;letter-spacing:0.08em;font-size:0.78rem}
+    .muted-2{color:#9fb0c1}
+  </style>
 </head>
 <body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">MA</div>
+        <div>
+          <div style="font-weight:800">Martin Adolfo</div>
+          <div style="font-size:0.85rem;color:var(--muted)">Constructiva Pro — Ingeniería aplicada</div>
+        </div>
+      </div>
 
-    <!-- Lugar donde React dibuja -->
-    <div id="root"></div>
+      <nav>
+        <a href="#productos">Productos</a>
+        <a href="#cursos">Cursos</a>
+        <a href="#comunidad">Comunidad</a>
+        <a href="#precios" class="cta">Suscríbete</a>
+      </nav>
+    </header>
 
-    <!-- Tu archivo JSX -->
-    <script type="text/babel" src="app.jsx"></script>
+    <main>
+      <section class="hero">
+        <div>
+          <div class="kicker">Plataforma técnica | Premium</div>
+          <h1>Diseña. Calcula. Construye el futuro — con herramientas reales</h1>
+          <p>Acceso a cursos especializados, plantillas descargables, librerías BIM y herramientas que te acompañan desde la oficina al terreno. Suscripción mensual o acceso puntual por producto.</p>
+          <div class="actions">
+            <button class="btn" onclick="openSubscribe()">Únete a Constructiva Pro</button>
+            <button class="btn secondary" onclick="document.getElementById('demo').scrollIntoView({behavior:'smooth'})">Ver demo gratuito</button>
+          </div>
 
+          <div style="margin-top:1.25rem;display:flex;gap:0.6rem;align-items:center">
+            <div class="pill">+150 recursos</div>
+            <div class="muted">Cursos, plantillas y certificados</div>
+          </div>
+
+          <div style="margin-top:1.25rem" class="card">
+            <strong>Propuesta rápida:</strong>
+            <div class="muted-2" style="margin-top:0.5rem">Acceso centralizado a conocimiento técnico con recomendaciones personalizadas y herramientas descargables que incrementan productividad y reducen tiempos de entrega.</div>
+          </div>
+        </div>
+
+        <aside class="card" style="width:100%;max-width:420px">
+          <h3 style="margin-top:0">Tu panel — ejemplo</h3>
+          <p class="muted">Vista previa del dashboard que verá un suscriptor: cursos activos, descargas recientes y recomendaciones.</p>
+
+          <div style="margin-top:1rem">
+            <div style="display:flex;gap:0.75rem;align-items:center">
+              <div style="width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,#1e3d59,#072033);display:flex;align-items:center;justify-content:center;font-weight:800">C</div>
+              <div>
+                <div style="font-weight:700">Academia Constructiva</div>
+                <div class="muted">Curso: Análisis de vigas — 2h restantes</div>
+              </div>
+            </div>
+
+            <hr style="border:none;border-top:1px solid rgba(255,255,255,0.03);margin:1rem 0">
+
+            <div class="muted">Descargas recientes</div>
+            <ul style="padding-left:1rem;margin-top:0.5rem;line-height:1.6;color:var(--muted)">
+              <li>Plantilla de cálculo de pórticos (Excel)</li>
+              <li>Detalle constructivo - zapata corrida (DWG)</li>
+              <li>Modelo BIM: losa reticular (RVT)</li>
+            </ul>
+
+            <div style="margin-top:1rem;display:flex;gap:0.5rem">
+              <button class="btn" onclick="openSubscribe()">Suscribirme</button>
+              <button class="btn secondary" onclick="alert('Demo descargado')">Descargar demo</button>
+            </div>
+
+          </div>
+        </aside>
+      </section>
+
+      <section id="productos">
+        <h2 style="margin-top:1.75rem">Ecosistema Constructiva Pro</h2>
+        <p class="muted">Agrupamos la oferta en productos que cubren toda la cadena del profesional técnico.</p>
+
+        <div class="features" style="margin-top:1rem">
+          <div class="feature card">
+            <h4>Academia Constructiva Pro</h4>
+            <div class="muted">Cursos grabados y en vivo, microcertificaciones y material descargable con ejercicios aplicados.</div>
+          </div>
+          <div class="feature card">
+            <h4>Toolbox Pro</h4>
+            <div class="muted">Plantillas, scripts (Excel, Python), macros y librerías para acelerar cálculos y entregables.</div>
+          </div>
+          <div class="feature card">
+            <h4>Biblioteca Técnica</h4>
+            <div class="muted">Planos, detalles y modelos BIM con licencias claras para uso profesional.</div>
+          </div>
+        </div>
+
+        <div class="features" style="margin-top:0.75rem">
+          <div class="feature card">
+            <h4>Comunidad y Foros</h4>
+            <div class="muted">Espacio para resolver dudas, plantear retos y colaborar en proyectos de práctica.</div>
+          </div>
+          <div class="feature card">
+            <h4>Marketplace</h4>
+            <div class="muted">Vende tus plantillas o cursos a través de la plataforma.</div>
+          </div>
+          <div class="feature card">
+            <h4>Certificaciones</h4>
+            <div class="muted">Evaluaciones prácticas y certificaciones con valor curricular.</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="cursos" style="margin-top:1.5rem">
+        <h2>Contenido destacado</h2>
+        <div class="grid-2" style="margin-top:1rem">
+          <div class="card">
+            <h3 style="margin:0">Análisis estructural avanzado</h3>
+            <p class="muted">Curso modular con ejercicios resueltos, archivos de RISA y problemas tipo examen.</p>
+            <ul class="muted" style="margin-top:0.75rem">
+              <li>Módulo 1: Vigas y pórticos</li>
+              <li>Módulo 2: Metodologías numéricas</li>
+              <li>Módulo 3: Casos prácticos</li>
+            </ul>
+            <div style="margin-top:1rem"><button class="btn" onclick="openCourse('Estructural')">Ver curso</button></div>
+          </div>
+
+          <div class="card">
+            <h3 style="margin:0">Toolbox: Plantillas y Scripts</h3>
+            <p class="muted">Paquete inicial con hojas de cálculo, Python para análisis hidráulico y macros para dimensionamiento.</p>
+            <div style="margin-top:1rem"><button class="btn secondary" onclick="openCourse('Toolbox')">Ver recursos</button></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="precios" style="margin-top:2rem">
+        <h2>Planes</h2>
+        <p class="muted">Modelos flexibles: prueba gratuita, mensual y anual con descuentos y beneficios exclusivos.</p>
+
+        <div class="pricing">
+          <div class="price-card">
+            <div class="kicker">Gratis</div>
+            <div class="price">$0 <small>Acceso limitado</small></div>
+            <ul class="muted" style="margin-top:0.75rem">
+              <li>Acceso a 3 recursos</li>
+              <li>Foros públicos</li>
+            </ul>
+            <div style="margin-top:1rem"><button class="btn secondary" onclick="openSubscribe('free')">Crear cuenta</button></div>
+          </div>
+
+          <div class="price-card">
+            <div class="kicker">Pro</div>
+            <div class="price">$14.99 <small>/mes</small></div>
+            <ul class="muted" style="margin-top:0.75rem">
+              <li>Acceso completo a cursos</li>
+              <li>Toolbox y descargas</li>
+              <li>Certificados básicos</li>
+            </ul>
+            <div style="margin-top:1rem"><button class="btn" onclick="openSubscribe('pro')">Suscribirme</button></div>
+          </div>
+
+          <div class="price-card">
+            <div class="kicker">Empresa</div>
+            <div class="price">Contacta <small>Precios por licencia</small></div>
+            <ul class="muted" style="margin-top:0.75rem">
+              <li>Licencias por equipo</li>
+              <li>Capacitaciones in-company</li>
+            </ul>
+            <div style="margin-top:1rem"><button class="btn secondary" onclick="openContact()">Contactar</button></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="comunidad" style="margin-top:2rem">
+        <h2>Comunidad y Revista</h2>
+        <p class="muted">Eventos mensuales, desafíos de diseño y boletín técnico con entrevistas a expertos.</p>
+
+        <div class="card" style="margin-top:1rem">
+          <h3>Boletín técnico</h3>
+          <p class="muted">Suscríbete para recibir artículos, casos de estudio y plantillas destacadas.</p>
+          <form onsubmit="event.preventDefault();newsletter()" style="display:flex;gap:0.5rem;margin-top:0.75rem">
+            <input type="email" id="email" placeholder="tu@correo.com" required style="flex:1;padding:0.6rem;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit">
+            <button class="btn">Suscribirme</button>
+          </form>
+        </div>
+      </section>
+
+      <section id="demo" style="margin-top:2rem">
+        <h2>Demo gratuito</h2>
+        <p class="muted">Descarga un paquete demo con 3 recursos y prueba la experiencia Constructiva Pro.</p>
+        <div style="display:flex;gap:1rem;margin-top:1rem;flex-wrap:wrap">
+          <div class="card" style="flex:1;min-width:220px">
+            <h4>Plantilla de cálculo</h4>
+            <p class="muted">Excel con macros para análisis rápido de vigas.</p>
+            <div style="margin-top:0.75rem"><button class="btn secondary" onclick="alert('Iniciando descarga demo...')">Descargar</button></div>
+          </div>
+
+          <div class="card" style="flex:1;min-width:220px">
+            <h4>Detalle constructivo</h4>
+            <p class="muted">DWG de zapata corrida con notas técnicas.</p>
+            <div style="margin-top:0.75rem"><button class="btn secondary" onclick="alert('Iniciando descarga demo...')">Descargar</button></div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap">
+        <div>
+          <div style="font-weight:800">Martin Adolfo</div>
+          <div class="muted">Constructiva Pro — Ingeniería aplicada</div>
+        </div>
+
+        <div style="display:flex;gap:1rem;align-items:center">
+          <a href="#" class="muted">Aviso de privacidad</a>
+          <a href="#" class="muted">Términos</a>
+        </div>
+      </div>
+
+      <div style="margin-top:1rem;color:var(--muted)">© <span id="year"></span> Martin Adolfo. Todos los derechos reservados.</div>
+    </footer>
+  </div>
+
+  <!-- Subscription modal (simple, cliente) -->
+  <div id="modal" style="position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(0,0,0,0.4),rgba(0,0,0,0.6));z-index:60">
+    <div style="width:480px;max-width:94%;border-radius:14px;padding:1.25rem;background:linear-gradient(180deg,#071227,#06111f);box-shadow:0 10px 40px rgba(2,6,12,0.8);border:1px solid rgba(255,255,255,0.03)">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <h3 style="margin:0">Suscripción Constructiva Pro</h3>
+          <div class="muted">Comienza tu periodo de prueba de 7 días</div>
+        </div>
+        <button style="background:transparent;border:none;color:var(--muted);font-size:1.25rem;cursor:pointer" onclick="closeModal()">✕</button>
+      </div>
+
+      <form id="subscribeForm" onsubmit="event.preventDefault();completeSubscribe()" style="margin-top:1rem;display:grid;gap:0.6rem">
+        <input required type="text" id="name" placeholder="Nombre completo" style="padding:0.75rem;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit">
+        <input required type="email" id="mail" placeholder="Correo electrónico" style="padding:0.75rem;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit">
+        <div style="display:flex;gap:0.5rem">
+          <button class="btn" type="submit">Comenzar prueba</button>
+          <button class="btn secondary" type="button" onclick="closeModal()">Cerrar</button>
+        </div>
+      </form>
+
+      <div style="margin-top:0.75rem;font-size:0.85rem;color:var(--muted)">Al registrarte aceptas nuestros términos y la política de privacidad.</div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function openSubscribe(){document.getElementById('modal').style.display='flex';}
+    function closeModal(){document.getElementById('modal').style.display='none';}
+
+    function completeSubscribe(){
+      const name = document.getElementById('name').value;const mail=document.getElementById('mail').value;
+      closeModal();
+      alert('Gracias '+name+' — te hemos enviado un correo a '+mail+' (simulado).');
+    }
+
+    function openCourse(name){alert('Abriendo vista del curso: '+name+' (simulado).')}
+
+    function openContact(){alert('Contacto: envia un correo a contacto@martinadolfo.example (simulado).')}
+
+    function newsletter(){const e=document.getElementById('email').value;alert('Gracias — '+e+' añadido al boletín (simulado).')}
+  </script>
 </body>
 </html>
