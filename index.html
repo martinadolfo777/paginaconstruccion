@@ -3,190 +3,80 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-
-  <title>Martin Adolfo — Constructiva Pro</title>
-  <meta name="description" content="Constructiva Pro by Martin Adolfo — Cursos, herramientas y biblioteca premium para ingeniería civil y arquitectura.">
+  <title>Blog Técnico — Constructiva Pro</title>
+  <meta name="description" content="Blog técnico especializado en hidráulica e ingeniería civil.">
   <meta name="author" content="Martin Adolfo">
 
-  <link rel="icon" href="data:image/svg+xml,
-  <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
-  <text y='.9em' font-size='90'>MA</text></svg>">
-
   <style>
-  :root{
-    --bg:#0f1724;
-    --card:#0b1220;
-    --accent:#f5af19;
-    --muted:#9aa7b2;
-    --glass:rgba(255,255,255,0.04);
-    --maxw:1100px;
-    --radius:12px;
-    --ff-sans:'Inter', system-ui, Arial;
-  }
+    body{
+      margin:0;
+      font-family: system-ui, Arial, sans-serif;
+      background:linear-gradient(180deg,#071028,#05080f);
+      color:#e6eef6;
+    }
 
-  *{box-sizing:border-box}
-  body{
-    margin:0;
-    font-family:var(--ff-sans);
-    background:linear-gradient(180deg,#071028 0%,#07101a 60%);
-    color:#e6eef6;
-  }
+    .container{
+      max-width:900px;
+      margin:auto;
+      padding:2rem;
+    }
 
-  .container{max-width:var(--maxw);margin:auto;padding:2rem}
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:2rem;
+    }
 
-  header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:1rem 0;
-  }
+    a{color:#f5af19;text-decoration:none;font-weight:600}
 
-  .brand{
-    display:flex;
-    align-items:center;
-    gap:0.75rem;
-  }
+    .card{
+      background:rgba(255,255,255,0.03);
+      padding:1.5rem;
+      border-radius:14px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.6);
+    }
 
-  .logo{
-    width:52px;
-    height:52px;
-    border-radius:10px;
-    background:linear-gradient(135deg,var(--accent),#1e3d59);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:800;
-    color:#072033;
-  }
-
-  nav a{
-    color:var(--muted);
-    text-decoration:none;
-    padding:0.5rem 0.75rem;
-    border-radius:8px;
-  }
-
-  nav a.cta{
-    background:var(--accent);
-    color:#072033;
-    font-weight:600;
-  }
-
-  section{margin-top:2rem}
-
-  .hero{
-    display:grid;
-    grid-template-columns:1fr 420px;
-    gap:2rem;
-  }
-
-  .card{
-    background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));
-    border-radius:var(--radius);
-    padding:1.25rem;
-    box-shadow:0 6px 24px rgba(3,8,18,0.6);
-  }
-
-  .features{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:1rem;
-  }
-
-  footer{
-    margin-top:3rem;
-    border-top:1px solid rgba(255,255,255,0.05);
-    padding:1.5rem 0;
-    color:var(--muted);
-    text-align:center;
-  }
-
-  @media(max-width:900px){
-    .hero{grid-template-columns:1fr}
-    .features{grid-template-columns:1fr}
-    nav{display:none}
-  }
+    footer{
+      text-align:center;
+      margin-top:3rem;
+      color:#9aa7b2;
+      font-size:0.9rem;
+    }
   </style>
 </head>
 
 <body>
+
 <div class="container">
 
 <header>
-  <div class="brand">
-    <div class="logo">MA</div>
-    <div>
-      <strong>Martin Adolfo</strong><br>
-      <small style="color:var(--muted)">Constructiva Pro — Ingeniería aplicada</small>
-    </div>
-  </div>
-
-  <nav>
-    <a href="#productos">Productos</a>
-    <a href="#cursos">Cursos</a>
-    <a href="blog.html">Blog</a>
-    <a href="#precios" class="cta">Suscríbete</a>
-  </nav>
+  <strong>Blog Técnico — Constructiva Pro</strong>
+  <a href="index.html">← Volver al inicio</a>
 </header>
 
-<main>
+<article class="card">
+  <h1>Fundamentos del flujo en canales abiertos</h1>
 
-<section class="hero">
-  <div>
-    <h1>Diseña. Calcula. Construye el futuro</h1>
-    <p>Plataforma de formación técnica aplicada, recursos descargables y herramientas reales para profesionales de obra e ingeniería.</p>
-  </div>
+  <p>
+    El flujo en canales abiertos constituye uno de los pilares de la ingeniería hidráulica, pues interviene directamente en el diseño de sistemas de riego, drenaje pluvial y control de avenidas. Su particularidad esencial radica en la existencia de una superficie libre sometida a presión atmosférica, condición que modifica sustancialmente la distribución de velocidades y presiones respecto al flujo presurizado.
+  </p>
 
-  <div class="card">
-    <h3>Panel de ejemplo</h3>
-    <p class="muted">Vista previa del dashboard para usuarios suscritos.</p>
-  </div>
-</section>
+  <p>
+    Desde una perspectiva científica, el régimen del flujo se clasifica mediante el número de Froude, que relaciona la velocidad del fluido con la velocidad de propagación de ondas gravitacionales. Este criterio permite distinguir entre flujo subcrítico, crítico y supercrítico, determinando así la estabilidad hidráulica y el comportamiento dinámico del sistema.
+  </p>
 
-<section id="productos">
-  <h2>Ecosistema Constructiva Pro</h2>
-  <div class="features">
-    <div class="card">
-      <h4>Academia</h4>
-      <p class="muted">Cursos técnicos con aplicación directa.</p>
-    </div>
-    <div class="card">
-      <h4>Toolbox</h4>
-      <p class="muted">Plantillas y scripts profesionales.</p>
-    </div>
-    <div class="card">
-      <h4>Biblioteca BIM</h4>
-      <p class="muted">Planos y modelos descargables.</p>
-    </div>
-  </div>
-</section>
+  <p>
+    La ecuación de Manning se emplea habitualmente para estimar la velocidad media del flujo, integrando parámetros geométricos e hidráulicos como el radio hidráulico, la pendiente energética y el coeficiente de rugosidad. Su aplicación racional reduce riesgos de erosión, socavación y pérdidas energéticas excesivas.
+  </p>
 
-<section id="cursos">
-  <h2>Contenido destacado</h2>
-  <div class="card">
-    <h3>Análisis estructural avanzado</h3>
-    <p class="muted">Ejercicios resueltos y casos profesionales.</p>
-  </div>
-</section>
-
-<section id="precios">
-  <h2>Planes</h2>
-  <div class="features">
-    <div class="card">
-      <h3>Gratis</h3>
-      <p>$0 / acceso limitado</p>
-    </div>
-    <div class="card">
-      <h3>Pro</h3>
-      <p>$14.99 / mes</p>
-    </div>
-  </div>
-</section>
-
-</main>
+  <p>
+    El diseño correcto de canales abiertos exige la comprensión epistemológica de estos principios, pues su ignorancia conduce a soluciones empíricas ineficientes. La ingeniería, en este contexto, deja de ser mera construcción y se transforma en ciencia aplicada con fines sociales y ambientales.
+  </p>
+</article>
 
 <footer>
-  © 2025 Martin Adolfo — Constructiva Pro. Todos los derechos reservados.
+  © 2025 Constructiva Pro · Blog Técnico de Ingeniería Civil
 </footer>
 
 </div>
