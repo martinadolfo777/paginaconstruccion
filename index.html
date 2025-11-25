@@ -1,30 +1,15 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Martin Adolfo — Constructiva Pro</title>
-  <meta name="description" content="Constructiva Pro by Martin Adolfo — Cursos, herramientas y biblioteca premium para ingeniería civil y arquitectura." />
-  <meta name="author" content="Martin Adolfo" />
+  <meta name="description" content="Constructiva Pro by Martin Adolfo — Cursos, herramientas y biblioteca premium para ingeniería civil y arquitectura.">
+  <meta name="author" content="Martin Adolfo">
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>MA</text></svg>">
 
-  <!-- ====================
-       COMENTARIO ESTRATÉGICO
-       ====================
-       Tesis: Martin Adolfo será una plataforma de suscripción que provee formación técnica continua, herramientas aplicadas y recursos descargables para ingenieros y arquitectos, enfocada en aplicación práctica y escalabilidad.
-
-       Argumento estilo Harvard (síntesis):
-       - Problema: dispersión del conocimiento técnico y baja integración teoría–obra.
-       - Propuesta: ecosistema centralizado con acceso por suscripción + compras puntuales.
-       - Evidencia: reutilización de materiales y modelo de recomendación que incrementa retención.
-       - Conclusión: combinación de contenido recurrente y productos descargables genera ingresos escalables.
-
-       Modelo de ingresos:
-       suscripción mensual/anual, ventas puntuales, cursos certificados y marketplace.
-  -->
-
+  <!-- ================== ESTILOS ================== -->
   <style>
     :root{
       --bg:#0f1724;
@@ -34,158 +19,252 @@
       --glass:rgba(255,255,255,0.04);
       --maxw:1100px;
       --radius:12px;
-      --ff-sans:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Arial;
+      --fw-semibold:600;
+      --ff-sans:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
+
     body{
       margin:0;
       font-family:var(--ff-sans);
       background:linear-gradient(180deg,#071028 0%,#07101a 60%);
       color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
     }
 
-    .container{max-width:var(--maxw);margin:auto;padding:2rem}
-    .card{background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,.01));padding:1.25rem;border-radius:var(--radius)}
-    .muted{color:var(--muted)}
+    .container{
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:2rem;
+    }
 
-    /* HEADER */
-    header{display:flex;justify-content:space-between;align-items:center;padding:1rem 0}
-    .brand{display:flex;gap:.75rem;align-items:center}
+    /* ===== HEADER ===== */
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:1rem 0;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:0.75rem;
+    }
+
     .logo{
-      width:52px;height:52px;border-radius:10px;
+      width:52px;
+      height:52px;
+      border-radius:10px;
       background:linear-gradient(135deg,var(--accent),#1e3d59);
-      display:flex;align-items:center;justify-content:center;
-      font-weight:800;color:#072033;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:800;
+      color:#072033;
     }
 
-    nav a{color:var(--muted);text-decoration:none;padding:.5rem .75rem}
-    nav a.cta{background:var(--accent);color:#072033;border-radius:8px;font-weight:600}
+    nav{
+      display:flex;
+      gap:1rem;
+      align-items:center;
+    }
 
-    /* HERO */
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:2rem;padding:2rem 0}
-    .hero h1{margin:0;font-size:2.1rem}
-    .actions{display:flex;gap:1rem;margin-top:1rem}
+    nav a{
+      color:var(--muted);
+      text-decoration:none;
+      padding:0.5rem 0.75rem;
+      border-radius:8px;
+    }
+
+    nav a.cta{
+      background:var(--accent);
+      color:#072033;
+      font-weight:600;
+    }
+
+    nav a:hover{opacity:0.9}
+
+    /* ===== HERO ===== */
+    .hero{
+      display:grid;
+      grid-template-columns:1fr 420px;
+      gap:2rem;
+      align-items:center;
+      padding:2.5rem 0;
+    }
+
+    .hero h1{
+      font-size:2.1rem;
+      margin:0 0 0.6rem;
+      color:#ffffff;
+    }
+
+    .hero p{
+      margin:0 0 1.25rem;
+      color:var(--muted);
+      line-height:1.5;
+    }
+
+    .actions{
+      display:flex;
+      gap:1rem;
+    }
 
     .btn{
-      background:var(--accent);border:none;
-      padding:.9rem 1.25rem;border-radius:10px;
-      font-weight:700;cursor:pointer;
+      background:var(--accent);
+      border:none;
+      padding:0.9rem 1.25rem;
+      border-radius:10px;
+      font-weight:700;
+      cursor:pointer;
     }
 
-    .btn.secondary{background:transparent;color:var(--accent);border:1px solid rgba(245,175,25,.2)}
+    .btn.secondary{
+      background:transparent;
+      color:var(--accent);
+      border:1px solid rgba(245,175,25,0.12);
+    }
 
-    /* FEATURES */
-    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1rem}
-    .feature{background:var(--glass);padding:1rem;border-radius:10px}
+    /* ===== COMPONENTES ===== */
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius);
+      padding:1.25rem;
+      box-shadow:0 6px 24px rgba(3,8,18,0.6);
+    }
 
-    /* PRICING */
-    .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2rem}
-    .price-card{background:#071227;padding:1.25rem;border-radius:12px}
+    .features{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1rem;
+      margin-top:1rem;
+    }
 
-    footer{margin-top:3rem;border-top:1px solid rgba(255,255,255,.05);padding:1.5rem 0;color:var(--muted)}
+    .feature{
+      padding:1rem;
+      border-radius:10px;
+      background:var(--glass);
+      border:1px solid rgba(255,255,255,0.02);
+    }
 
-    @media(max-width:900px){
-      .hero{grid-template-columns:1fr}
-      .features,.pricing{grid-template-columns:1fr}
+    .muted{color:var(--muted)}
+
+    .pricing{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1rem;
+      margin:2rem 0;
+    }
+
+    .price-card{
+      padding:1.25rem;
+      border-radius:12px;
+      background:#071227;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+
+    footer{
+      margin-top:2.5rem;
+      border-top:1px solid rgba(255,255,255,0.03);
+      padding:1.5rem 0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr;}
+      .features{grid-template-columns:repeat(2,1fr)}
+      .pricing{grid-template-columns:1fr}
       nav{display:none}
     }
   </style>
 </head>
 
 <body>
-<div class="container">
+  <div class="container">
 
-  <!-- HEADER -->
-  <header>
-    <div class="brand">
-      <div class="logo">MA</div>
+    <!-- ================= HEADER ================= -->
+    <header>
+      <div class="brand">
+        <div class="logo">MA</div>
+        <div>
+          <div style="font-weight:800">Martin Adolfo</div>
+          <div style="font-size:0.85rem;color:var(--muted)">Constructiva Pro — Ingeniería aplicada</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#productos">Productos</a>
+        <a href="#cursos">Cursos</a>
+        <a href="#comunidad">Comunidad</a>
+        <a href="#precios" class="cta">Suscríbete</a>
+      </nav>
+    </header>
+
+    <!-- ================= HERO ================= -->
+    <section class="hero">
       <div>
-        <strong>Martin Adolfo</strong>
-        <div class="muted">Constructiva Pro — Ingeniería aplicada</div>
+        <h1>Diseña. Calcula. Construye el futuro</h1>
+        <p>Plataforma premium con cursos, herramientas y recursos técnicos para profesionales de la construcción.</p>
+        <div class="actions">
+          <button class="btn">Únete ahora</button>
+          <button class="btn secondary">Ver demo</button>
+        </div>
       </div>
-    </div>
 
-    <nav>
-      <a href="#productos">Productos</a>
-      <a href="#cursos">Cursos</a>
-      <a href="#comunidad">Comunidad</a>
-      <a href="#precios" class="cta">Suscríbete</a>
-      <a href="blog.html">Blog</a>
-      <a href="blog.html">Blog</a>
-</nav>
-  </header>
+      <aside class="card">
+        <h3>Ejemplo de panel</h3>
+        <p class="muted">Vista previa del dashboard del usuario suscrito.</p>
+      </aside>
+    </section>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div>
-      <h1>Diseña. Calcula. Construye el futuro — con herramientas reales</h1>
-      <p class="muted">Formación técnica, plantillas y librerías BIM para profesionales que trabajan con rigor y eficiencia.</p>
-
-      <div class="actions">
-        <button class="btn">Únete a Constructiva Pro</button>
-        <button class="btn secondary">Ver demo</button>
+    <!-- ================= PRODUCTOS ================= -->
+    <section id="productos">
+      <h2>Ecosistema Constructiva Pro</h2>
+      <div class="features">
+        <div class="feature">
+          <h4>Academia</h4>
+          <p class="muted">Cursos técnicos con enfoque práctico.</p>
+        </div>
+        <div class="feature">
+          <h4>Toolbox</h4>
+          <p class="muted">Plantillas y herramientas profesionales.</p>
+        </div>
+        <div class="feature">
+          <h4>Biblioteca BIM</h4>
+          <p class="muted">Modelos listos para proyecto.</p>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <aside class="card">
-      <h3>Vista previa del panel</h3>
-      <p class="muted">Cursos activos, descargas recientes y recomendaciones personalizadas.</p>
-    </aside>
-  </section>
+    <!-- ================= PRECIOS ================= -->
+    <section id="precios">
+      <h2>Planes</h2>
+      <div class="pricing">
+        <div class="price-card">
+          <strong>Gratis</strong>
+          <p class="muted">Acceso básico</p>
+        </div>
+        <div class="price-card">
+          <strong>Pro</strong>
+          <p class="muted">Acceso completo</p>
+        </div>
+        <div class="price-card">
+          <strong>Empresa</strong>
+          <p class="muted">Planes personalizados</p>
+        </div>
+      </div>
+    </section>
 
-  <!-- PRODUCTOS -->
-  <section id="productos">
-    <h2>Ecosistema Constructiva Pro</h2>
-    <div class="features">
-      <div class="feature">
-        <h4>Academia</h4>
-        <p class="muted">Cursos técnicos y microcertificaciones.</p>
-      </div>
-      <div class="feature">
-        <h4>Toolbox</h4>
-        <p class="muted">Plantillas, scripts y macros profesionales.</p>
-      </div>
-      <div class="feature">
-        <h4>Biblioteca BIM</h4>
-        <p class="muted">Detalles y modelos listos para uso real.</p>
-      </div>
-    </div>
-  </section>
+    <!-- ================= FOOTER ================= -->
+    <footer>
+      <p>© 2025 Martin Adolfo — Constructiva Pro</p>
+    </footer>
 
-  <!-- CURSOS -->
-  <section id="cursos">
-    <h2>Contenido destacado</h2>
-    <div class="card">
-      <strong>Análisis estructural avanzado</strong>
-      <p class="muted">Ejercicios resueltos, casos reales y metodología aplicada.</p>
-    </div>
-  </section>
-
-  <!-- PRECIOS -->
-  <section id="precios">
-    <h2>Planes</h2>
-    <div class="pricing">
-      <div class="price-card">
-        <strong>Gratis</strong>
-        <p class="muted">Acceso limitado</p>
-      </div>
-      <div class="price-card">
-        <strong>Pro</strong>
-        <p class="muted">Acceso completo</p>
-      </div>
-      <div class="price-card">
-        <strong>Empresa</strong>
-        <p class="muted">Solución corporativa</p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    © 2025 Martin Adolfo · Constructiva Pro
-  </footer>
-
-</div>
+  </div>
 </body>
 </html>
