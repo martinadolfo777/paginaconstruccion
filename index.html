@@ -4,109 +4,196 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Martin Adolfo — Constructiva Pro</title>
-  <meta name="description" content="Constructiva Pro by Martin Adolfo — Cursos, herramientas y biblioteca premium para ingeniería civil y arquitectura.">
+  <meta name="description" content="Constructiva Pro by Martin Adolfo — Plataforma técnica para ingeniería civil con blog especializado en hidráulica.">
   <meta name="author" content="Martin Adolfo">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>MA</text></svg>">
+
   <style>
     :root{
       --bg:#0f1724; --card:#0b1220; --accent:#f5af19; --muted:#9aa7b2; --glass:rgba(255,255,255,0.04);
-      --maxw:1100px; --radius:12px; --fw-semibold:600;
-      --ff-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      --maxw:1100px; --radius:14px;
+      --ff-sans: system-ui, -apple-system, Segoe UI, Roboto, Arial;
     }
+
     *{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0;font-family:var(--ff-sans);background:linear-gradient(180deg,#071028 0%,#07101a 60%);color:#e6eef6;-webkit-font-smoothing:antialiased}
-    .container{max-width:var(--maxw);margin:0 auto;padding:2rem}
+    body{
+      margin:0;
+      font-family:var(--ff-sans);
+      background:linear-gradient(180deg,#071028,#05080f);
+      color:#e6eef6;
+    }
 
-    header{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
-    .brand{display:flex;align-items:center;gap:0.75rem}
-    .logo{width:52px;height:52px;border-radius:10px;background:linear-gradient(135deg,var(--accent),#1e3d59);display:flex;align-items:center;justify-content:center;font-weight:800;color:#072033}
-    nav{display:flex;gap:1rem;align-items:center}
-    nav a{color:var(--muted);text-decoration:none;padding:0.5rem 0.75rem;border-radius:8px}
-    nav a.cta{background:var(--accent);color:#072033;font-weight:600}
+    .container{
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:1.8rem;
+    }
 
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:2rem;align-items:center;padding:2.5rem 0}
-    .hero h1{font-size:2.1rem;margin:0 0 0.6rem;color:#ffffff}
-    .hero p{margin:0 0 1.25rem;color:var(--muted);line-height:1.5}
-    .btn{background:var(--accent);border:none;padding:0.9rem 1.25rem;border-radius:10px;font-weight:700;cursor:pointer}
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:1rem 0;
+    }
 
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:var(--radius);padding:1.25rem;box-shadow:0 6px 24px rgba(3,8,18,0.6)}
+    .brand{
+      display:flex;
+      gap:0.8rem;
+      align-items:center;
+    }
+
+    .logo{
+      width:50px;height:50px;
+      background:linear-gradient(135deg,#f5af19,#1e3d59);
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:800;
+      color:#072033;
+    }
+
+    nav a{
+      color:var(--muted);
+      text-decoration:none;
+      margin-left:1rem;
+      font-weight:600;
+    }
+
+    nav a.cta{
+      background:var(--accent);
+      color:#072033;
+      padding:0.5rem 0.8rem;
+      border-radius:10px;
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:1.5rem;
+      margin-top:1rem;
+    }
+
+    .hero h1{font-size:2.2rem;margin:0}
+    .muted{color:var(--muted);line-height:1.6}
 
     section{margin-top:2.5rem}
 
-    footer{margin-top:2.5rem;border-top:1px solid rgba(255,255,255,0.03);padding:1.5rem 0;color:var(--muted);font-size:0.95rem}
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:1rem;
+    }
 
-    @media (max-width:900px){
-      .hero{grid-template-columns:1fr;}
-      nav{display:none}
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.005));
+      border-radius:var(--radius);
+      padding:1.2rem;
+      box-shadow:0 8px 20px rgba(0,0,0,0.6);
+    }
+
+    .pill{
+      display:inline-block;
+      background:rgba(245,175,25,0.12);
+      color:var(--accent);
+      padding:0.25rem 0.6rem;
+      border-radius:999px;
+      font-size:0.8rem;
+      font-weight:700;
+    }
+
+    footer{
+      margin-top:3rem;
+      border-top:1px solid rgba(255,255,255,0.05);
+      padding:1.2rem 0;
+      color:var(--muted);
+      font-size:0.9rem;
+      text-align:center;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="brand">
-        <div class="logo">MA</div>
-        <div>
-          <div style="font-weight:800">Martin Adolfo</div>
-          <div style="font-size:0.85rem;color:var(--muted)">Constructiva Pro — Ingeniería aplicada</div>
-        </div>
-      </div>
 
-      <nav>
-        <a href="#productos">Productos</a>
-        <a href="#cursos">Cursos</a>
-        <a href="#blog">Blog</a>
-        <a href="#precios" class="cta">Suscríbete</a>
-      </nav>
-    </header>
+<div class="container">
 
-    <main>
-      <section class="hero">
-        <div>
-          <h1>Diseña. Calcula. Construye el futuro — con herramientas reales</h1>
-          <p>Acceso a cursos especializados, plantillas descargables y material técnico enfocado en aplicación práctica.</p>
-          <button class="btn">Únete a Constructiva Pro</button>
-        </div>
-      </section>
-
-      <!-- NUEVA SECCIÓN BLOG -->
-      <section id="blog">
-        <h2>Blog técnico — Ingeniería civil</h2>
-        <p style="color:var(--muted)">Divulgación técnica con enfoque crítico y aplicado.</p>
-
-        <article class="card" style="margin-top:1.5rem">
-          <h3>Principios fundamentales de la hidráulica aplicada en obras civiles</h3>
-          <p style="color:#9fb0c1; line-height:1.6">
-            La hidráulica constituye una de las disciplinas pilares de la ingeniería civil, al encargarse del estudio del comportamiento del agua en reposo y en movimiento, así como de su interacción con las estructuras destinadas a controlarla, conducirla o almacenarla. Su correcta aplicación resulta determinante para la seguridad, eficiencia y sostenibilidad de infraestructuras como redes de abastecimiento, presas, canales y sistemas de drenaje pluvial.
-          </p>
-
-          <h4>1. Planteamiento del problema hidráulico</h4>
-          <p style="color:#9fb0c1; line-height:1.6">
-            Toda obra hidráulica parte de una necesidad concreta: transportar, distribuir o regular un caudal determinado bajo condiciones específicas de presión, pendiente y régimen de flujo. La ingeniería contemporánea reconoce que una solución exclusivamente empírica conduce frecuentemente a sobrecostos, fallas hidráulicas o ineficiencia operativa.
-          </p>
-
-          <h4>2. Fundamento teórico</h4>
-          <p style="color:#9fb0c1; line-height:1.6">
-            El análisis hidráulico se basa en principios como la conservación de la masa (ecuación de continuidad), conservación de la energía (ecuación de Bernoulli extendida) y conservación del momento. Estos principios permiten modelar el comportamiento del flujo y evaluar fenómenos como pérdidas de carga, transiciones críticas y variaciones de presión en conducciones cerradas y abiertas.
-          </p>
-
-          <h4>3. Aplicación práctica</h4>
-          <p style="color:#9fb0c1; line-height:1.6">
-            En la práctica civil, la correcta selección del diámetro de una tubería o de la sección de un canal depende de un balance entre criterios hidráulicos, económicos y constructivos. El error en la estimación del caudal de diseño o en la pendiente hidráulica genera problemas como velocidades excesivas, sedimentación o colapsos por presión negativa.
-          </p>
-
-          <h4>4. Conclusión</h4>
-          <p style="color:#9fb0c1; line-height:1.6">
-            La hidráulica aplicada no es únicamente una herramienta de cálculo, sino un marco racional para la toma de decisiones técnicas. Su dominio permite transformar el comportamiento natural del agua en soluciones funcionales, seguras y sostenibles, reafirmando su papel estratégico en el desarrollo de infraestructura moderna.
-          </p>
-        </article>
-      </section>
-    </main>
-
-    <footer>
-      © 2025 Martin Adolfo — Constructiva Pro. Todos los derechos reservados.
-    </footer>
+<header>
+  <div class="brand">
+    <div class="logo">MA</div>
+    <div>
+      <strong>Martin Adolfo</strong><br>
+      <small class="muted">Constructiva Pro — Ingeniería aplicada</small>
+    </div>
   </div>
+
+  <nav>
+    <a href="#productos">Productos</a>
+    <a href="#cursos">Cursos</a>
+    <a href="#blog">Blog</a>
+    <a href="#precios" class="cta">Suscripción</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Plataforma técnica para ingenieros civiles</h1>
+  <p class="muted">Formación especializada, recursos profesionales y divulgación rigurosa en hidráulica, estructuras y construcción.</p>
+</section>
+
+<section id="productos">
+  <h2>Productos</h2>
+  <div class="grid-3">
+    <div class="card">Plantillas estructurales profesionales</div>
+    <div class="card">Calculadoras hidráulicas avanzadas</div>
+    <div class="card">Biblioteca técnica descargable</div>
+  </div>
+</section>
+
+<section id="cursos">
+  <h2>Cursos</h2>
+  <div class="grid-3">
+    <div class="card">Hidráulica aplicada en obras civiles</div>
+    <div class="card">Análisis estructural avanzado</div>
+    <div class="card">Diseño de canales y drenaje pluvial</div>
+  </div>
+</section>
+
+<section id="blog">
+  <h2>Blog Técnico — Hidráulica</h2>
+  <p class="muted">Contenido introductorio con rigor técnico sobre principios hidráulicos fundamentales.</p>
+
+  <article class="card">
+    <h3>Fundamentos del flujo en canales abiertos</h3>
+    <span class="pill">Hidráulica básica</span>
+
+    <p>
+      El flujo en canales abiertos representa una de las áreas más relevantes de la ingeniería hidráulica, particularmente en el diseño de infraestructuras para riego, drenaje urbano y control de avenidas. A diferencia del flujo presurizado, este tipo de movimiento se caracteriza por la presencia de una superficie libre en contacto directo con la atmósfera.
+    </p>
+
+    <p>
+      El comportamiento del flujo se clasifica en régimen subcrítico, crítico o supercrítico, en función del número de Froude, parámetro adimensional que relaciona la velocidad del flujo con la velocidad de propagación de ondas gravitacionales. Este criterio permite definir condiciones de estabilidad hidráulica en canales artificiales y naturales.
+    </p>
+
+    <p>
+      Para la estimación de la velocidad media se emplea la ecuación de Manning, la cual integra la rugosidad del canal, el radio hidráulico y la pendiente energética. Su correcta aplicación contribuye al diseño eficiente de secciones hidráulicas y a la mitigación de fenómenos de erosión, socavación y pérdidas excesivas de energía.
+    </p>
+
+    <p>
+      La comprensión integral de estos principios constituye la base para obras hidráulicas seguras, funcionales y sostenibles desde el punto de vista técnico y económico.
+    </p>
+  </article>
+</section>
+
+<section id="precios">
+  <h2>Planes de Suscripción</h2>
+  <div class="grid-3">
+    <div class="card">Plan Básico — Acceso limitado</div>
+    <div class="card">Plan Profesional — Contenido completo</div>
+    <div class="card">Plan Premium — Recursos exclusivos</div>
+  </div>
+</section>
+
+<footer>
+  © 2025 Martin Adolfo · Constructiva Pro · Ingeniería civil con rigor técnico
+</footer>
+
+</div>
 </body>
 </html>
