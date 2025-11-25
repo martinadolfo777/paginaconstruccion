@@ -2,16 +2,36 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
   <title>Martin Adolfo — Constructiva Pro</title>
   <meta name="description" content="Constructiva Pro by Martin Adolfo — Cursos, herramientas y biblioteca premium para ingeniería civil y arquitectura.">
   <meta name="author" content="Martin Adolfo">
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>MA</text></svg>">
 
-  <!-- ================== ESTILOS ================== -->
+  <!--
+  Martin Adolfo - Landing page (Single-file HTML)
+  Resumen estratégico (estilo Harvard):
+
+  Tesis de valor:
+  "Martin Adolfo será una plataforma de suscripción que provee formación técnica continua, herramientas aplicadas y recursos descargables para ingenieros y arquitectos, con fuerte enfoque en aplicación práctica y escalabilidad."
+
+  Argumento:
+  1. Problema: conocimiento técnico disperso y baja integración entre teoría y obra.
+  2. Propuesta: ecosistema centralizado (cursos, toolbox, biblioteca BIM, comunidad).
+  3. Evidencia: reutilización de materiales, certificaciones, modelos de recomendación.
+  4. Conclusión: combinación de contenido y productos escalables diversifica ingresos.
+
+  Modelo de ingresos:
+  - Suscripción mensual/anual
+  - Ventas puntuales
+  - Cursos certificados
+  - Marketplace para terceros
+  -->
+
   <style>
-    :root{
+    :root {
       --bg:#0f1724;
       --card:#0b1220;
       --accent:#f5af19;
@@ -20,18 +40,16 @@
       --maxw:1100px;
       --radius:12px;
       --fw-semibold:600;
-      --ff-sans:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;
+      --ff-sans:'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
-
     body{
       margin:0;
       font-family:var(--ff-sans);
       background:linear-gradient(180deg,#071028 0%,#07101a 60%);
       color:#e6eef6;
-      -webkit-font-smoothing:antialiased;
     }
 
     .container{
@@ -40,18 +58,18 @@
       padding:2rem;
     }
 
-    /* ===== HEADER ===== */
+    /* HEADER */
     header{
       display:flex;
-      align-items:center;
       justify-content:space-between;
+      align-items:center;
       padding:1rem 0;
     }
 
     .brand{
       display:flex;
-      align-items:center;
       gap:0.75rem;
+      align-items:center;
     }
 
     .logo{
@@ -69,12 +87,11 @@
     nav{
       display:flex;
       gap:1rem;
-      align-items:center;
     }
 
     nav a{
-      color:var(--muted);
       text-decoration:none;
+      color:var(--muted);
       padding:0.5rem 0.75rem;
       border-radius:8px;
     }
@@ -85,32 +102,22 @@
       font-weight:600;
     }
 
-    nav a:hover{opacity:0.9}
-
-    /* ===== HERO ===== */
+    /* HERO */
     .hero{
       display:grid;
       grid-template-columns:1fr 420px;
       gap:2rem;
-      align-items:center;
       padding:2.5rem 0;
     }
 
     .hero h1{
       font-size:2.1rem;
       margin:0 0 0.6rem;
-      color:#ffffff;
     }
 
     .hero p{
-      margin:0 0 1.25rem;
       color:var(--muted);
       line-height:1.5;
-    }
-
-    .actions{
-      display:flex;
-      gap:1rem;
     }
 
     .btn{
@@ -124,11 +131,10 @@
 
     .btn.secondary{
       background:transparent;
-      color:var(--accent);
       border:1px solid rgba(245,175,25,0.12);
+      color:var(--accent);
     }
 
-    /* ===== COMPONENTES ===== */
     .card{
       background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
       border-radius:var(--radius);
@@ -136,49 +142,16 @@
       box-shadow:0 6px 24px rgba(3,8,18,0.6);
     }
 
-    .features{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:1rem;
-      margin-top:1rem;
-    }
-
-    .feature{
-      padding:1rem;
-      border-radius:10px;
-      background:var(--glass);
-      border:1px solid rgba(255,255,255,0.02);
-    }
-
-    .muted{color:var(--muted)}
-
-    .pricing{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:1rem;
-      margin:2rem 0;
-    }
-
-    .price-card{
-      padding:1.25rem;
-      border-radius:12px;
-      background:#071227;
-      border:1px solid rgba(255,255,255,0.03);
-    }
-
     footer{
       margin-top:2.5rem;
       border-top:1px solid rgba(255,255,255,0.03);
       padding:1.5rem 0;
       color:var(--muted);
-      font-size:0.95rem;
+      font-size:0.9rem;
     }
 
-    /* ===== RESPONSIVE ===== */
-    @media (max-width:900px){
-      .hero{grid-template-columns:1fr;}
-      .features{grid-template-columns:repeat(2,1fr)}
-      .pricing{grid-template-columns:1fr}
+    @media(max-width:900px){
+      .hero{grid-template-columns:1fr}
       nav{display:none}
     }
   </style>
@@ -186,13 +159,11 @@
 
 <body>
   <div class="container">
-
-    <!-- ================= HEADER ================= -->
     <header>
       <div class="brand">
         <div class="logo">MA</div>
         <div>
-          <div style="font-weight:800">Martin Adolfo</div>
+          <strong>Martin Adolfo</strong>
           <div style="font-size:0.85rem;color:var(--muted)">Constructiva Pro — Ingeniería aplicada</div>
         </div>
       </div>
@@ -205,66 +176,28 @@
       </nav>
     </header>
 
-    <!-- ================= HERO ================= -->
-    <section class="hero">
-      <div>
-        <h1>Diseña. Calcula. Construye el futuro</h1>
-        <p>Plataforma premium con cursos, herramientas y recursos técnicos para profesionales de la construcción.</p>
-        <div class="actions">
+    <main>
+      <section class="hero">
+        <div>
+          <h1>Diseña. Calcula. Construye el futuro</h1>
+          <p>
+            Plataforma premium para ingenieros y arquitectos.
+            Acceso a cursos, herramientas prácticas y recursos descargables.
+          </p>
+
           <button class="btn">Únete ahora</button>
-          <button class="btn secondary">Ver demo</button>
         </div>
-      </div>
 
-      <aside class="card">
-        <h3>Ejemplo de panel</h3>
-        <p class="muted">Vista previa del dashboard del usuario suscrito.</p>
-      </aside>
-    </section>
+        <aside class="card">
+          <h3>Vista previa del panel</h3>
+          <p class="muted">Ejemplo del entorno del suscriptor.</p>
+        </aside>
+      </section>
+    </main>
 
-    <!-- ================= PRODUCTOS ================= -->
-    <section id="productos">
-      <h2>Ecosistema Constructiva Pro</h2>
-      <div class="features">
-        <div class="feature">
-          <h4>Academia</h4>
-          <p class="muted">Cursos técnicos con enfoque práctico.</p>
-        </div>
-        <div class="feature">
-          <h4>Toolbox</h4>
-          <p class="muted">Plantillas y herramientas profesionales.</p>
-        </div>
-        <div class="feature">
-          <h4>Biblioteca BIM</h4>
-          <p class="muted">Modelos listos para proyecto.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= PRECIOS ================= -->
-    <section id="precios">
-      <h2>Planes</h2>
-      <div class="pricing">
-        <div class="price-card">
-          <strong>Gratis</strong>
-          <p class="muted">Acceso básico</p>
-        </div>
-        <div class="price-card">
-          <strong>Pro</strong>
-          <p class="muted">Acceso completo</p>
-        </div>
-        <div class="price-card">
-          <strong>Empresa</strong>
-          <p class="muted">Planes personalizados</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= FOOTER ================= -->
     <footer>
-      <p>© 2025 Martin Adolfo — Constructiva Pro</p>
+      © Martin Adolfo — Constructiva Pro
     </footer>
-
   </div>
 </body>
 </html>
