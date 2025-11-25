@@ -3,82 +3,201 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Blog Técnico — Constructiva Pro</title>
-  <meta name="description" content="Blog técnico especializado en hidráulica e ingeniería civil.">
+
+  <title>Martin Adolfo — Constructiva Pro</title>
+  <meta name="description" content="Constructiva Pro by Martin Adolfo — Cursos, herramientas y biblioteca premium para ingeniería civil y arquitectura.">
   <meta name="author" content="Martin Adolfo">
 
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>MA</text></svg>">
+
+  <!--
+  Martin Adolfo - Landing page (Single-file HTML)
+  Resumen estratégico (estilo Harvard):
+
+  Tesis de valor:
+  "Martin Adolfo será una plataforma de suscripción que provee formación técnica continua, herramientas aplicadas y recursos descargables para ingenieros y arquitectos, con fuerte enfoque en aplicación práctica y escalabilidad."
+
+  Argumento:
+  1. Problema: conocimiento técnico disperso y baja integración entre teoría y obra.
+  2. Propuesta: ecosistema centralizado (cursos, toolbox, biblioteca BIM, comunidad).
+  3. Evidencia: reutilización de materiales, certificaciones, modelos de recomendación.
+  4. Conclusión: combinación de contenido y productos escalables diversifica ingresos.
+
+  Modelo de ingresos:
+  - Suscripción mensual/anual
+  - Ventas puntuales
+  - Cursos certificados
+  - Marketplace para terceros
+  -->
+
   <style>
+    :root {
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent:#f5af19;
+      --muted:#9aa7b2;
+      --glass:rgba(255,255,255,0.04);
+      --maxw:1100px;
+      --radius:12px;
+      --fw-semibold:600;
+      --ff-sans:'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
-      font-family: system-ui, Arial, sans-serif;
-      background:linear-gradient(180deg,#071028,#05080f);
+      font-family:var(--ff-sans);
+      background:linear-gradient(180deg,#071028 0%,#07101a 60%);
       color:#e6eef6;
     }
 
     .container{
-      max-width:900px;
-      margin:auto;
+      max-width:var(--maxw);
+      margin:0 auto;
       padding:2rem;
     }
 
+    /* HEADER */
     header{
       display:flex;
       justify-content:space-between;
       align-items:center;
-      margin-bottom:2rem;
+      padding:1rem 0;
     }
 
-    a{color:#f5af19;text-decoration:none;font-weight:600}
+    .brand{
+      display:flex;
+      gap:0.75rem;
+      align-items:center;
+    }
+
+    .logo{
+      width:52px;
+      height:52px;
+      border-radius:10px;
+      background:linear-gradient(135deg,var(--accent),#1e3d59);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:800;
+      color:#072033;
+    }
+
+    nav{
+      display:flex;
+      gap:1rem;
+    }
+
+    nav a{
+      text-decoration:none;
+      color:var(--muted);
+      padding:0.5rem 0.75rem;
+      border-radius:8px;
+    }
+
+    nav a.cta{
+      background:var(--accent);
+      color:#072033;
+      font-weight:600;
+    }
+
+    /* HERO */
+    .hero{
+      display:grid;
+      grid-template-columns:1fr 420px;
+      gap:2rem;
+      padding:2.5rem 0;
+    }
+
+    .hero h1{
+      font-size:2.1rem;
+      margin:0 0 0.6rem;
+    }
+
+    .hero p{
+      color:var(--muted);
+      line-height:1.5;
+    }
+
+    .btn{
+      background:var(--accent);
+      border:none;
+      padding:0.9rem 1.25rem;
+      border-radius:10px;
+      font-weight:700;
+      cursor:pointer;
+    }
+
+    .btn.secondary{
+      background:transparent;
+      border:1px solid rgba(245,175,25,0.12);
+      color:var(--accent);
+    }
 
     .card{
-      background:rgba(255,255,255,0.03);
-      padding:1.5rem;
-      border-radius:14px;
-      box-shadow:0 8px 20px rgba(0,0,0,0.6);
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:var(--radius);
+      padding:1.25rem;
+      box-shadow:0 6px 24px rgba(3,8,18,0.6);
     }
 
     footer{
-      text-align:center;
-      margin-top:3rem;
-      color:#9aa7b2;
+      margin-top:2.5rem;
+      border-top:1px solid rgba(255,255,255,0.03);
+      padding:1.5rem 0;
+      color:var(--muted);
       font-size:0.9rem;
+    }
+
+    @media(max-width:900px){
+      .hero{grid-template-columns:1fr}
+      nav{display:none}
     }
   </style>
 </head>
 
 <body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">MA</div>
+        <div>
+          <strong>Martin Adolfo</strong>
+          <div style="font-size:0.85rem;color:var(--muted)">Constructiva Pro — Ingeniería aplicada</div>
+        </div>
+      </div>
 
-<div class="container">
+      <nav>
+        <a href="#productos">Productos</a>
+        <a href="#cursos">Cursos</a>
+        <a href="#comunidad">Comunidad</a>
+        <a href="#precios" class="cta">Suscríbete</a>
+      </nav>
+    </header>
 
-<header>
-  <strong>Blog Técnico — Constructiva Pro</strong>
-  <a href="index.html">← Volver al inicio</a>
-</header>
+    <main>
+      <section class="hero">
+        <div>
+          <h1>Diseña. Calcula. Construye el futuro</h1>
+          <p>
+            Plataforma premium para ingenieros y arquitectos.
+            Acceso a cursos, herramientas prácticas y recursos descargables.
+          </p>
 
-<article class="card">
-  <h1>Fundamentos del flujo en canales abiertos</h1>
+          <button class="btn">Únete ahora</button>
+        </div>
 
-  <p>
-    El flujo en canales abiertos constituye uno de los pilares de la ingeniería hidráulica, pues interviene directamente en el diseño de sistemas de riego, drenaje pluvial y control de avenidas. Su particularidad esencial radica en la existencia de una superficie libre sometida a presión atmosférica, condición que modifica sustancialmente la distribución de velocidades y presiones respecto al flujo presurizado.
-  </p>
+        <aside class="card">
+          <h3>Vista previa del panel</h3>
+          <p class="muted">Ejemplo del entorno del suscriptor.</p>
+        </aside>
+      </section>
+    </main>
 
-  <p>
-    Desde una perspectiva científica, el régimen del flujo se clasifica mediante el número de Froude, que relaciona la velocidad del fluido con la velocidad de propagación de ondas gravitacionales. Este criterio permite distinguir entre flujo subcrítico, crítico y supercrítico, determinando así la estabilidad hidráulica y el comportamiento dinámico del sistema.
-  </p>
-
-  <p>
-    La ecuación de Manning se emplea habitualmente para estimar la velocidad media del flujo, integrando parámetros geométricos e hidráulicos como el radio hidráulico, la pendiente energética y el coeficiente de rugosidad. Su aplicación racional reduce riesgos de erosión, socavación y pérdidas energéticas excesivas.
-  </p>
-
-  <p>
-    El diseño correcto de canales abiertos exige la comprensión epistemológica de estos principios, pues su ignorancia conduce a soluciones empíricas ineficientes. La ingeniería, en este contexto, deja de ser mera construcción y se transforma en ciencia aplicada con fines sociales y ambientales.
-  </p>
-</article>
-
-<footer>
-  © 2025 Constructiva Pro · Blog Técnico de Ingeniería Civil
-</footer>
-
-</div>
+    <footer>
+      © Martin Adolfo — Constructiva Pro
+    </footer>
+  </div>
 </body>
 </html>
