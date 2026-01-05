@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Diseño de Elementos de Concreto Reforzado</title>
+<title>Diseño de Losa – Flexión (Multi-Claros)</title>
 <style>
 body {
     font-family: "Segoe UI", Arial, sans-serif;
@@ -13,7 +13,7 @@ body {
     background: #ffffff;
     padding: 25px;
     border-radius: 8px;
-    max-width: 1200px;
+    max-width: 1300px;
     margin: auto;
 }
 h1, h2 { text-align: center; }
@@ -32,20 +32,20 @@ th { background: #e6e6e6; }
 .warn { background: #f8d7da; font-weight: bold; }
 input, select { width: 100%; }
 button {
-    margin-top: 20px;
-    padding: 12px;
-    width: 100%;
-    font-size: 16px;
+    margin-top: 15px;
+    padding: 10px;
+    font-size: 15px;
 }
 .section { margin-top: 35px; }
+.flex { display: flex; gap: 10px; }
 </style>
 </head>
 
 <body>
 <div class="container">
 
-<h1>Diseño de Acero de Losa</h1>
-<h2>ACI 318</h2>
+<h1>Diseño de Losa a Flexión</h1>
+<h2>ACI 318 – Análisis por Momentos Críticos</h2>
 
 <div class="section">
 <h3>Datos generales</h3>
@@ -59,71 +59,28 @@ button {
 </div>
 
 <div class="section">
-<h3>Momentos últimos</h3>
-<table>
-<tr><th>Momento</th><th>Mn (kgf·m)</th></tr>
-<tr><td>Momento 1</td><td><input id="Mn1" value="614.20"></td></tr>
-<tr><td>Momento 2</td><td><input id="Mn2" value="614.20"></td></tr>
-<tr><td>Momento 3</td><td><input id="Mn3" value="614.20"></td></tr>
-</table>
-</div>
+<h3>Momentos / Claros</h3>
 
-<div class="section">
-<h3>Refuerzo por momento</h3>
-<table>
-<tr><th>Momento</th><th>Varilla</th><th>No. Varillas</th></tr>
-
+<table id="tablaClaros">
 <tr>
-<td>1</td>
-<td>
-<select id="A1">
-<option value="0.71">#3</option>
-<option value="1.27" selected>#4</option>
-<option value="1.99">#5</option>
-<option value="2.85">#6</option>
-<option value="5.07">#8</option>
-</select>
-</td>
-<td><input id="N1" value="1"></td>
-</tr>
-
-<tr>
-<td>2</td>
-<td>
-<select id="A2">
-<option value="0.71">#3</option>
-<option value="1.27" selected>#4</option>
-<option value="1.99">#5</option>
-<option value="2.85">#6</option>
-<option value="5.07">#8</option>
-</select>
-</td>
-<td><input id="N2" value="1"></td>
-</tr>
-
-<tr>
-<td>3</td>
-<td>
-<select id="A3">
-<option value="0.71">#3</option>
-<option value="1.27" selected>#4</option>
-<option value="1.99">#5</option>
-<option value="2.85">#6</option>
-<option value="5.07">#8</option>
-</select>
-</td>
-<td><input id="N3" value="1"></td>
+<th>Claro</th>
+<th>Mn (kgf·m)</th>
+<th>Varilla</th>
+<th>No. Varillas</th>
 </tr>
 </table>
-</div>
 
+<div class="flex">
+<button onclick="agregarClaro()">Añadir claro</button>
 <button onclick="calcular()">Calcular</button>
+</div>
+</div>
 
 <div class="section">
 <h3>Resultados</h3>
 <table id="tablaResultados">
 <tr>
-<th>Momento</th>
+<th>Claro</th>
 <th>As requerida (cm²)</th>
 <th>As colocada (cm²)</th>
 <th>a (cm)</th>
@@ -136,20 +93,39 @@ button {
 </div>
 
 <script>
+let contador = 0;
+
+function agregarClaro(){
+    contador++;
+    let tabla = document.getElementById("tablaClaros");
+    tabla.innerHTML += `
+<tr>
+<td>${contador}</td>
+<td><input id="Mn_${contador}" value="614.20"></td>
+<td>
+<select id="A_${contador}">
+<option value="0.71">#3</option>
+<option value="1.27" selected>#4</option>
+<option value="1.99">#5</option>
+<option value="2.85">#6</option>
+<option value="5.07">#8</option>
+</select>
+</td>
+<td><input id="N_${contador}" value="1"></td>
+</tr>`;
+}
+
 function resolverAs(Mn_phi, fy, d, fc, bw){
     let A = fy * d;
-    let B = fy * fy / (2 * 0.85 * fc * bw);
+    let B = fy*fy / (2 * 0.85 * fc * bw);
     let disc = A*A - 4*B*Mn_phi;
     if (disc <= 0) return 0;
     return (A - Math.sqrt(disc)) / (2*B);
 }
 
-function evaluarMomento(Mn, Abar, n){
-    let fc = +document.getElementById("fc").value;
-    let fy = +document.getElementById("fy").value;
-    let phi = +document.getElementById("phi").value;
-    let bw = +document.getElementById("bw").value;
-    let d = +document.getElementById("d_eff").value;
+function evaluar(Mn, Abar, n){
+    let fc = +fcEl.value, fy = +fyEl.value, phi = +phiEl.value;
+    let bw = +bwEl.value, d = +dEl.value;
 
     let beta1 = fc <= 280 ? 0.85 : Math.max(0.65, 0.85 - (fc-280)/700);
     let Mn_phi = Mn * 100 / phi;
@@ -172,11 +148,17 @@ function evaluarMomento(Mn, Abar, n){
     return {As_req, As, a, Mn_ver, estado, clase};
 }
 
+const fcEl = document.getElementById("fc");
+const fyEl = document.getElementById("fy");
+const phiEl = document.getElementById("phi");
+const bwEl = document.getElementById("bw");
+const dEl = document.getElementById("d_eff");
+
 function calcular(){
     let tabla = document.getElementById("tablaResultados");
     tabla.innerHTML = `
 <tr>
-<th>Momento</th>
+<th>Claro</th>
 <th>As requerida (cm²)</th>
 <th>As colocada (cm²)</th>
 <th>a (cm)</th>
@@ -184,23 +166,27 @@ function calcular(){
 <th>Estado del acero</th>
 </tr>`;
 
-    [
-        [1, Mn1.value, A1.value, N1.value],
-        [2, Mn2.value, A2.value, N2.value],
-        [3, Mn3.value, A3.value, N3.value]
-    ].forEach(d=>{
-        let r = evaluarMomento(+d[1], +d[2], +d[3]);
+    for(let i=1;i<=contador;i++){
+        let r = evaluar(
+            +document.getElementById(`Mn_${i}`).value,
+            +document.getElementById(`A_${i}`).value,
+            +document.getElementById(`N_${i}`).value
+        );
+
         tabla.innerHTML += `
 <tr class="${r.clase}">
-<td>${d[0]}</td>
+<td>${i}</td>
 <td>${r.As_req.toFixed(3)}</td>
 <td>${r.As.toFixed(3)}</td>
 <td>${r.a.toFixed(3)}</td>
 <td>${r.Mn_ver.toFixed(2)}</td>
 <td>${r.estado}</td>
 </tr>`;
-    });
+    }
 }
+
+// Crear 3 claros iniciales
+for(let i=0;i<3;i++) agregarClaro();
 </script>
 
 </body>
