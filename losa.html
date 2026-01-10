@@ -96,7 +96,12 @@ function calcular(){
 
   let a=mejor.As*fy/(0.85*fc*b);
   let MnV=mejor.As*fy*(d-a/2)/100;
-  let ok=MnV>=Mn;
+ let Es = 2000000;
+let eps_y = fy / Es;
+let c = a / beta1;
+let eps_s = 0.003 * (d - c) / c;
+
+let fluye = eps_s >= eps_y;
   let fila=tabla.rows[i];
 
   fila.cells[2].innerHTML=Asr.toFixed(3);
@@ -104,8 +109,8 @@ function calcular(){
   fila.cells[4].innerHTML=mejor.bar;
   fila.cells[5].innerHTML=mejor.k;
   fila.cells[6].innerHTML=MnV.toFixed(1);
-  fila.cells[7].innerHTML=ok?"OK":"NO CUMPLE";
-  fila.className=ok?"ok":"warn";
+ fila.cells[7].innerHTML = fluye ? "FLUYE" : "NO FLUYE";
+  fila.className = fluye ? "ok" : "warn";
  }
 }
 
@@ -117,3 +122,4 @@ agregar();agregar();agregar();
 
 </body>
 </html>
+
