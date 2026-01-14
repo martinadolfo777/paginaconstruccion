@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Programa – Pérdida de Grasa</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background:#f4f4f4;
+}
+.login-container, .course-container{
+    max-width:900px;
+    margin:40px auto;
+    background:#fff;
+    padding:30px;
+    border-radius:8px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+h1,h2,h3{
+    color:#222;
+}
+input{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    font-size:16px;
+}
+button{
+    padding:12px 20px;
+    background:#2c3e50;
+    color:#fff;
+    border:none;
+    cursor:pointer;
+    font-size:16px;
+}
+button:hover{
+    background:#1a252f;
+}
+.module{
+    border:1px solid #ddd;
+    margin-bottom:15px;
+    border-radius:6px;
+}
+.module-header{
+    background:#2c3e50;
+    color:#fff;
+    padding:15px;
+    cursor:pointer;
+}
+.module-content{
+    display:none;
+    padding:20px;
+    line-height:1.6;
+}
+ul{
+    margin-left:20px;
+}
+.hidden{
+    display:none;
+}
+.notice{
+    background:#f9f2d0;
+    padding:15px;
+    border-left:5px solid #d4a017;
+    margin-bottom:20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div class="login-container" id="login">
+    <h1>Acceso al Programa</h1>
+    <p>Ingrese sus credenciales para continuar</p>
+    <input type="text" id="user" placeholder="Usuario">
+    <input type="password" id="pass" placeholder="Contraseña">
+    <button onclick="login()">Ingresar</button>
+    <p id="error" style="color:red;"></p>
+</div>
+
+<!-- CURSO -->
+<div class="course-container hidden" id="course">
+    <h1>Pérdida de Grasa</h1>
+    <p><strong>Instructor:</strong> Arq Davidad</p>
+
+    <div class="module">
+        <div class="module-header" onclick="toggle(this)">Introducción</div>
+        <div class="module-content">
+            <p>
+                El tiempo llegó cuando a los trece años quería perder peso.  
+                Para mi sorpresa, mi peso actual y mi autoestima estaban anclados,
+                sintiéndome miserable cada día que interactuaba con los demás.
+            </p>
+
+            <p>
+                Empecé a comer menos y visité a un nutriólogo del seguro social en México.
+                Me tomó medidas de IMC y recomendó una dieta basada en rollitos de jamón,
+                la cual no era compatible con los alimentos disponibles en mi hogar.
+            </p>
+        </div>
+    </div>
+
+    <div class="module">
+        <div class="module-header" onclick="toggle(this)">El problema de las dietas tradicionales</div>
+        <div class="module-content">
+            <p>
+                Luego de varios años descubrí el secreto de la pérdida de grasa a voluntad.
+                La mayoría de las dietas recomiendan consumos de 800 a 1200 kcal,
+                lo cual genera efectos metabólicos negativos en el organismo.
+            </p>
+
+            <p>
+                Antes de explicar el método, es necesario entender por qué el 85%
+                de la población mexicana presenta obesidad y cerca del 45% padece diabetes.
+            </p>
+        </div>
+    </div>
+
+    <div class="module">
+        <div class="module-header" onclick="toggle(this)">Disruptores endocrinos</div>
+        <div class="module-content">
+            <p>
+                En México, los envenenantes y disruptores endocrinos afectan de forma
+                hormonal y metabólica a la población.
+            </p>
+
+            <strong>Eliminar de la dieta:</strong>
+            <ul>
+                <li>Aceites vegetales</li>
+                <li>Tortillas</li>
+                <li>Azúcares</li>
+                <li>Conservadores</li>
+            </ul>
+
+            <strong>Eliminar del estilo de vida:</strong>
+            <ul>
+                <li>Poliéster</li>
+                <li>Plásticos</li>
+                <li>BPA</li>
+            </ul>
+
+            <p>
+                Se recomienda instalar filtros de agua en regadera y lavabo.
+            </p>
+        </div>
+    </div>
+
+    <div class="module">
+        <div class="module-header" onclick="toggle(this)">El secreto para perder grasa</div>
+        <div class="module-content">
+            <h3>A. Sueño y ritmo circadiano</h3>
+            <p>
+                El 80% de la grasa oxidada proviene de dormir 8 horas continuas.
+                El primer paso es ajustar el ritmo circadiano:
+            </p>
+            <ul>
+                <li>Exposición al sol 20 minutos al despertar</li>
+                <li>Ambiente frío para dormir</li>
+                <li>Evitar pantallas azules 1 hora antes de dormir</li>
+            </ul>
+
+            <h3>B. Organización del día</h3>
+            <ul>
+                <li>06:00 – Despertar</li>
+                <li>Ventana de cortisol: 1.5 h sin actividad intensa</li>
+                <li>06:30 – Café negro sin azúcar ni crema</li>
+                <li>07–09 – Ayuno o primera comida</li>
+                <li>10 – Fruta</li>
+                <li>11 – Primera comida alta en colesterol</li>
+                <li>16 – Segunda comida</li>
+                <li>18 – Cardio</li>
+                <li>19 – Priorizar sueño</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="module">
+        <div class="module-header" onclick="toggle(this)">Nutrición y calorías</div>
+        <div class="module-content">
+            <p>1 kg de grasa corporal equivale aproximadamente a 7,500 kcal.</p>
+
+            <p>
+                Para perder 0.5 kg por semana se requiere un déficit de 500 kcal diarias.
