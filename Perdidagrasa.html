@@ -184,3 +184,74 @@ ul{
 
             <p>
                 Para perder 0.5 kg por semana se requiere un déficit de 500 kcal diarias.
+            </p>
+
+            <p>
+                <strong>Kcal de mantenimiento:</strong><br>
+                33 × peso corporal (kg)
+            </p>
+
+            <p>
+                Con entrenamiento de fuerza 3 veces por semana,
+                el déficit máximo recomendable es de 900 kcal/día.
+            </p>
+
+            <h3>Macronutrientes</h3>
+            <ul>
+                <li>Carbohidratos: 4 kcal/g</li>
+                <li>Grasas: 9 kcal/g</li>
+                <li>Proteína: 4 kcal/g</li>
+            </ul>
+
+            <p>
+                Proteína recomendada:  
+                <strong>0.82 × peso corporal (lb)</strong>
+            </p>
+        </div>
+    </div>
+
+    <div class="module">
+        <div class="module-header" onclick="toggle(this)">Alimentos recomendados</div>
+        <div class="module-content">
+            <strong>Consumir:</strong>
+            <ul>
+                <li>Huevo</li>
+                <li>Papas</li>
+                <li>Vísceras de res</li>
+                <li>Hígado</li>
+                <li>Riñón</li>
+                <li>Corazón</li>
+                <li>Miel</li>
+                <li>Aceite de oliva</li>
+            </ul>
+
+            <strong>Eliminar:</strong>
+            <ul>
+                <li>Frijoles</li>
+                <li>Tortillas</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+function login(){
+    const u = document.getElementById("user").value;
+    const p = document.getElementById("pass").value;
+
+    if(u === "Arq Davidad" && p === "ad#700"){
+        document.getElementById("login").classList.add("hidden");
+        document.getElementById("course").classList.remove("hidden");
+    }else{
+        document.getElementById("error").innerText = "Credenciales incorrectas";
+    }
+}
+
+function toggle(el){
+    const content = el.nextElementSibling;
+    content.style.display = content.style.display === "block" ? "none" : "block";
+}
+</script>
+
+</body>
+</html>
