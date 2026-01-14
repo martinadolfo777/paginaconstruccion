@@ -2,24 +2,39 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Programa – Pérdida de Grasa</title>
+<title>Programa de Pérdida de Grasa</title>
 
 <style>
 body{
     margin:0;
-    font-family: Arial, Helvetica, sans-serif;
-    background:#f4f4f4;
+    font-family: "Georgia", "Times New Roman", serif;
+    background:#f2f2f2;
+    color:#1a1a1a;
 }
 .login-container, .course-container{
-    max-width:900px;
+    max-width:960px;
     margin:40px auto;
-    background:#fff;
-    padding:30px;
-    border-radius:8px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    background:#ffffff;
+    padding:40px;
+    border-radius:6px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.12);
 }
-h1,h2,h3{
-    color:#222;
+h1{
+    font-size:32px;
+    margin-bottom:10px;
+}
+h2{
+    font-size:24px;
+    margin-top:30px;
+}
+h3{
+    font-size:20px;
+    margin-top:20px;
+}
+p{
+    font-size:17px;
+    line-height:1.7;
+    text-align:justify;
 }
 input{
     width:100%;
@@ -28,43 +43,48 @@ input{
     font-size:16px;
 }
 button{
-    padding:12px 20px;
-    background:#2c3e50;
+    padding:12px 22px;
+    background:#2b2b2b;
     color:#fff;
     border:none;
     cursor:pointer;
     font-size:16px;
 }
 button:hover{
-    background:#1a252f;
+    background:#000;
 }
 .module{
-    border:1px solid #ddd;
-    margin-bottom:15px;
-    border-radius:6px;
+    border:1px solid #ccc;
+    margin-top:20px;
 }
 .module-header{
-    background:#2c3e50;
+    background:#2b2b2b;
     color:#fff;
-    padding:15px;
+    padding:16px;
+    font-size:18px;
     cursor:pointer;
 }
 .module-content{
     display:none;
-    padding:20px;
-    line-height:1.6;
+    padding:25px;
 }
 ul{
-    margin-left:20px;
+    margin-left:25px;
+    font-size:16px;
 }
 .hidden{
     display:none;
 }
-.notice{
-    background:#f9f2d0;
-    padding:15px;
-    border-left:5px solid #d4a017;
+.header-user{
+    font-style:italic;
+    font-size:16px;
     margin-bottom:20px;
+}
+.notice{
+    background:#f5f0dc;
+    padding:20px;
+    border-left:6px solid #b59b3a;
+    margin:25px 0;
 }
 </style>
 </head>
@@ -74,7 +94,7 @@ ul{
 <!-- LOGIN -->
 <div class="login-container" id="login">
     <h1>Acceso al Programa</h1>
-    <p>Ingrese sus credenciales para continuar</p>
+    <p>Ingreso restringido a usuarios autorizados</p>
     <input type="text" id="user" placeholder="Usuario">
     <input type="password" id="pass" placeholder="Contraseña">
     <button onclick="login()">Ingresar</button>
@@ -83,165 +103,179 @@ ul{
 
 <!-- CURSO -->
 <div class="course-container hidden" id="course">
-    <h1>Pérdida de Grasa</h1>
-    <p><strong>Instructor:</strong> Arq Davidad</p>
+    <h1>Programa Integral de Pérdida de Grasa</h1>
+    <div class="header-user" id="userName"></div>
 
+    <div class="notice">
+        Este programa se basa en principios fisiológicos, endocrinos y metabólicos
+        ampliamente documentados en la literatura científica contemporánea.
+        No constituye una dieta comercial ni un enfoque restrictivo extremo.
+    </div>
+
+    <!-- MODULO 1 -->
     <div class="module">
-        <div class="module-header" onclick="toggle(this)">Introducción</div>
+        <div class="module-header" onclick="toggle(this)">Fundamentos del problema metabólico moderno</div>
         <div class="module-content">
             <p>
-                El tiempo llegó cuando a los trece años quería perder peso.  
-                Para mi sorpresa, mi peso actual y mi autoestima estaban anclados,
-                sintiéndome miserable cada día que interactuaba con los demás.
+                Desde la adolescencia, el exceso de tejido adiposo no solo afecta la composición corporal,
+                sino que deteriora progresivamente la autoestima, la interacción social y la salud metabólica.
+                Los enfoques tradicionales centrados únicamente en la restricción calórica severa
+                han demostrado ser ineficaces y, en muchos casos, contraproducentes.
             </p>
 
             <p>
-                Empecé a comer menos y visité a un nutriólogo del seguro social en México.
-                Me tomó medidas de IMC y recomendó una dieta basada en rollitos de jamón,
-                la cual no era compatible con los alimentos disponibles en mi hogar.
+                En México, la alta prevalencia de obesidad y diabetes no puede explicarse
+                únicamente por la ingesta calórica. La exposición crónica a alimentos
+                ultraprocesados, disruptores endocrinos y alteraciones del ritmo biológico
+                ha generado un entorno metabólicamente hostil.
             </p>
         </div>
     </div>
 
+    <!-- MODULO 2 -->
     <div class="module">
-        <div class="module-header" onclick="toggle(this)">El problema de las dietas tradicionales</div>
+        <div class="module-header" onclick="toggle(this)">Ritmo circadiano y oxidación de grasa</div>
         <div class="module-content">
             <p>
-                Luego de varios años descubrí el secreto de la pérdida de grasa a voluntad.
-                La mayoría de las dietas recomiendan consumos de 800 a 1200 kcal,
-                lo cual genera efectos metabólicos negativos en el organismo.
+                El ritmo circadiano es el sistema maestro de regulación biológica del organismo humano.
+                Controla la secreción hormonal, la sensibilidad a la insulina, la temperatura corporal
+                y la capacidad de oxidar grasa.
             </p>
 
             <p>
-                Antes de explicar el método, es necesario entender por qué el 85%
-                de la población mexicana presenta obesidad y cerca del 45% padece diabetes.
+                Evidencia fisiológica sólida indica que aproximadamente el 80% de la oxidación
+                de grasa ocurre durante el sueño profundo, siempre que este sea continuo,
+                de al menos 7–8 horas, y sincronizado con el ciclo luz–oscuridad.
             </p>
+
+            <ul>
+                <li>Exposición a luz solar natural durante los primeros 20 minutos tras despertar</li>
+                <li>Evitar luz azul artificial una hora antes de dormir</li>
+                <li>Ambiente frío y oscuro durante el sueño</li>
+            </ul>
         </div>
     </div>
 
+    <!-- MODULO 3 -->
     <div class="module">
-        <div class="module-header" onclick="toggle(this)">Disruptores endocrinos</div>
+        <div class="module-header" onclick="toggle(this)">Disruptores endocrinos y alimentos prohibidos</div>
         <div class="module-content">
             <p>
-                En México, los envenenantes y disruptores endocrinos afectan de forma
-                hormonal y metabólica a la población.
+                Los disruptores endocrinos interfieren directamente con la señalización hormonal,
+                reduciendo testosterona, alterando la leptina y promoviendo resistencia a la insulina.
             </p>
 
-            <strong>Eliminar de la dieta:</strong>
+            <h3>Alimentos a eliminar estrictamente</h3>
             <ul>
-                <li>Aceites vegetales</li>
-                <li>Tortillas</li>
-                <li>Azúcares</li>
-                <li>Conservadores</li>
+                <li>Aceites vegetales industriales (alto contenido en omega-6 oxidado)</li>
+                <li>Azúcares añadidos</li>
+                <li>Conservadores y aditivos químicos</li>
+                <li>Tortillas industrializadas</li>
+                <li>Lácteos modernos (asociados a inflamación e insulinotropía)</li>
             </ul>
 
-            <strong>Eliminar del estilo de vida:</strong>
+            <h3>Factores ambientales</h3>
             <ul>
-                <li>Poliéster</li>
-                <li>Plásticos</li>
-                <li>BPA</li>
+                <li>Plásticos y BPA</li>
+                <li>Poliéster en contacto con la piel</li>
+                <li>Agua sin filtrar (ducha y lavabo)</li>
             </ul>
-
-            <p>
-                Se recomienda instalar filtros de agua en regadera y lavabo.
-            </p>
         </div>
     </div>
 
+    <!-- MODULO 4 -->
     <div class="module">
-        <div class="module-header" onclick="toggle(this)">El secreto para perder grasa</div>
+        <div class="module-header" onclick="toggle(this)">Organización metabólica diaria</div>
         <div class="module-content">
-            <h3>A. Sueño y ritmo circadiano</h3>
             <p>
-                El 80% de la grasa oxidada proviene de dormir 8 horas continuas.
-                El primer paso es ajustar el ritmo circadiano:
+                La correcta secuencia diaria permite aprovechar la ventana natural de cortisol,
+                evitando picos innecesarios de estrés metabólico.
             </p>
-            <ul>
-                <li>Exposición al sol 20 minutos al despertar</li>
-                <li>Ambiente frío para dormir</li>
-                <li>Evitar pantallas azules 1 hora antes de dormir</li>
-            </ul>
 
-            <h3>B. Organización del día</h3>
             <ul>
                 <li>06:00 – Despertar</li>
-                <li>Ventana de cortisol: 1.5 h sin actividad intensa</li>
+                <li>Primeros 90 minutos: evitar actividad intensa</li>
                 <li>06:30 – Café negro sin azúcar ni crema</li>
                 <li>07–09 – Ayuno o primera comida</li>
-                <li>10 – Fruta</li>
-                <li>11 – Primera comida alta en colesterol</li>
-                <li>16 – Segunda comida</li>
-                <li>18 – Cardio</li>
-                <li>19 – Priorizar sueño</li>
+                <li>10:00 – Fruta</li>
+                <li>11:00 – Comida rica en colesterol y proteína</li>
+                <li>16:00 – Segunda comida</li>
+                <li>18:00 – Cardio moderado</li>
+                <li>19:00 – Preparación para el sueño</li>
             </ul>
         </div>
     </div>
 
+    <!-- MODULO 5 -->
     <div class="module">
-        <div class="module-header" onclick="toggle(this)">Nutrición y calorías</div>
+        <div class="module-header" onclick="toggle(this)">Calorías, macronutrientes y límites fisiológicos</div>
         <div class="module-content">
-            <p>1 kg de grasa corporal equivale aproximadamente a 7,500 kcal.</p>
-
             <p>
-                Para perder 0.5 kg por semana se requiere un déficit de 500 kcal diarias.
+                Un kilogramo de grasa corporal equivale aproximadamente a 7,500 kcal.
+                Para una pérdida sostenible de 0.5 kg por semana se requiere un déficit
+                promedio de 500 kcal diarias.
             </p>
 
             <p>
-                <strong>Kcal de mantenimiento:</strong><br>
+                <strong>Calorías de mantenimiento:</strong><br>
                 33 × peso corporal (kg)
             </p>
 
             <p>
-                Con entrenamiento de fuerza 3 veces por semana,
-                el déficit máximo recomendable es de 900 kcal/día.
+                El límite fisiológico de oxidación de grasa se sitúa alrededor de 900 kcal/día,
+                siempre que exista entrenamiento de fuerza regular.
             </p>
 
-            <h3>Macronutrientes</h3>
             <ul>
                 <li>Carbohidratos: 4 kcal/g</li>
+                <li>Proteínas: 4 kcal/g</li>
                 <li>Grasas: 9 kcal/g</li>
-                <li>Proteína: 4 kcal/g</li>
             </ul>
 
             <p>
-                Proteína recomendada:  
-                <strong>0.82 × peso corporal (lb)</strong>
+                Requerimiento proteico recomendado:
+                <strong>0.82 × peso corporal en libras</strong>
             </p>
         </div>
     </div>
 
+    <!-- MODULO 6 -->
     <div class="module">
-        <div class="module-header" onclick="toggle(this)">Alimentos recomendados</div>
+        <div class="module-header" onclick="toggle(this)">Selección de alimentos densos en nutrientes</div>
         <div class="module-content">
-            <strong>Consumir:</strong>
+            <h3>Alimentos prioritarios</h3>
             <ul>
                 <li>Huevo</li>
-                <li>Papas</li>
-                <li>Vísceras de res</li>
-                <li>Hígado</li>
-                <li>Riñón</li>
-                <li>Corazón</li>
-                <li>Miel</li>
+                <li>Papa</li>
+                <li>Vísceras de res (hígado, riñón, corazón)</li>
+                <li>Miel natural</li>
                 <li>Aceite de oliva</li>
             </ul>
 
-            <strong>Eliminar:</strong>
+            <h3>Alimentos a excluir</h3>
             <ul>
                 <li>Frijoles</li>
                 <li>Tortillas</li>
             </ul>
         </div>
     </div>
+
 </div>
 
 <script>
+const users = {
+    "Arq David": "A#7",
+    "Maestro Martines": "A#7"
+};
+
 function login(){
     const u = document.getElementById("user").value;
     const p = document.getElementById("pass").value;
 
-    if(u === "Arq Davidad" && p === "ad#700"){
+    if(users[u] && users[u] === p){
         document.getElementById("login").classList.add("hidden");
         document.getElementById("course").classList.remove("hidden");
+        document.getElementById("userName").innerText = "Usuario autenticado: " + u;
     }else{
         document.getElementById("error").innerText = "Credenciales incorrectas";
     }
