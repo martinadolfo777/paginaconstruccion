@@ -12,19 +12,19 @@ body{
     color:#1a1a1a;
 }
 .login-container,.course-container{
-    max-width:960px;
+    max-width:1000px;
     margin:40px auto;
     background:#ffffff;
     padding:40px;
     border-radius:6px;
     box-shadow:0 6px 18px rgba(0,0,0,0.12);
 }
-h1{font-size:32px;}
-h2{font-size:24px;margin-top:30px;}
-h3{font-size:20px;margin-top:20px;}
+h1{font-size:34px;}
+h2{font-size:26px;margin-top:30px;}
+h3{font-size:21px;margin-top:20px;}
 p{
     font-size:17px;
-    line-height:1.7;
+    line-height:1.75;
     text-align:justify;
 }
 input{
@@ -43,7 +43,7 @@ button{
 button:hover{background:#000;}
 .module{
     border:1px solid #ccc;
-    margin-top:20px;
+    margin-top:22px;
 }
 .module-header{
     background:#2b2b2b;
@@ -54,18 +54,29 @@ button:hover{background:#000;}
 }
 .module-content{
     display:none;
-    padding:25px;
+    padding:28px;
 }
 ul{
-    margin-left:25px;
+    margin-left:28px;
     font-size:16px;
 }
 .hidden{display:none;}
 .notice{
     background:#f5f0dc;
-    padding:20px;
+    padding:22px;
     border-left:6px solid #b59b3a;
-    margin:25px 0;
+    margin:30px 0;
+}
+.calc-box{
+    background:#f9f9f9;
+    padding:20px;
+    border:1px dashed #aaa;
+    margin:20px 0;
+}
+.footer{
+    margin-top:50px;
+    font-size:14px;
+    color:#555;
 }
 </style>
 </head>
@@ -75,7 +86,7 @@ ul{
 <!-- LOGIN -->
 <div class="login-container" id="login">
     <h1>Acceso al Programa Platino</h1>
-    <p>Educación avanzada en composición corporal y bienestar humano</p>
+    <p>Educación integral en composición corporal, conducta y bienestar humano.</p>
     <input type="text" id="user" placeholder="Usuario">
     <input type="password" id="pass" placeholder="Contraseña">
     <button onclick="login()">Ingresar</button>
@@ -84,105 +95,218 @@ ul{
 
 <!-- CURSO -->
 <div class="course-container hidden" id="course">
-<h1>Protocolo Platino de Pérdida de Grasa y Masa Muscular</h1>
+
+<h1>Programa Platino de Pérdida de Grasa y Masa Muscular</h1>
 <div id="userName"></div>
 
 <div class="notice">
-Este programa integra fisiología humana, psicología conductual y principios de bienestar.
-No sustituye atención médica. Su objetivo es educar para decisiones autónomas y sostenibles.
+Este programa no es una dieta ni una rutina aislada.
+Es un sistema de reeducación metabólica, conductual y fisiológica
+orientado a resultados sostenibles y a autonomía personal.
 </div>
 
-<!-- MODULO PSICOLOGÍA -->
+<!-- MODULO 1 -->
 <div class="module">
 <div class="module-header" onclick="toggle(this)">
-Psicología Maestra de la Transformación Corporal
+Arquitectura Psicológica del Cambio Corporal
 </div>
 <div class="module-content">
-<p><strong>Sigmund Freud:</strong> El exceso de comida responde al principio del placer (ello).
-El yo entrenado aprende a posponer gratificación inmediata por objetivos superiores.</p>
+<p>
+Todo cambio corporal profundo inicia en la mente.
+El ser humano no come en exceso por hambre fisiológica,
+sino por impulsos, hábitos y conflictos no resueltos.
+</p>
 
-<p><strong>B. F. Skinner:</strong> El cuerpo se transforma por repetición.
-La adherencia no depende de motivación sino de sistemas de refuerzo y entorno.</p>
+<p>
+El protocolo platino entrena la capacidad de postergar gratificación:
+cuando surge un impulso, se introduce una pausa deliberada.
+Esta pausa transforma reacción en decisión.
+</p>
 
-<p><strong>Carl Rogers:</strong> El progreso real ocurre cuando la persona actúa desde congruencia,
-no desde culpa ni castigo. La autoaceptación mejora la adherencia metabólica.</p>
+<p>
+La repetición diaria de decisiones pequeñas crea automatismos.
+El cuerpo se adapta cuando el entorno y los refuerzos están bien diseñados,
+no cuando se depende de motivación.
+</p>
 
-<p>Este protocolo entrena el cuerpo <em>y</em> el sistema nervioso para operar en coherencia.</p>
+<p>
+La aceptación personal elimina el autosabotaje.
+El cuerpo responde mejor cuando el proceso se vive como construcción,
+no como castigo.
+</p>
 </div>
 </div>
 
-<!-- MODULO METABÓLICO -->
+<!-- MODULO 2 -->
 <div class="module">
 <div class="module-header" onclick="toggle(this)">
 Fundamentos Metabólicos Reales
 </div>
 <div class="module-content">
 <p>
-Un kilogramo de grasa corporal equivale aproximadamente a 7,500 kcal.
-La pérdida sostenible ocurre entre 0.25–0.75 kg por semana.
+La pérdida de grasa ocurre cuando el organismo utiliza más energía
+de la que ingresa de forma sostenida.
+Un kilogramo de grasa corporal representa aproximadamente 7,700 kcal.
 </p>
 
 <p>
-Déficits extremos elevan cortisol, reducen masa magra y colapsan la adherencia.
+La pérdida sostenible se sitúa entre 0.25 y 0.75 kg por semana.
+Déficits mayores deterioran masa muscular, hormonas y adherencia.
+</p>
+
+<p>
+El entrenamiento de fuerza es el estímulo que indica al cuerpo
+qué tejido conservar.
 </p>
 </div>
 </div>
 
-<!-- MODULO ENTRENAMIENTO -->
+<!-- MODULO 3 -->
 <div class="module">
 <div class="module-header" onclick="toggle(this)">
-Módulo Platino de Entrenamiento en Gimnasio
+Cálculo Platino de Calorías y Macronutrientes
+</div>
+<div class="module-content">
+
+<div class="calc-box">
+<p><strong>Paso 1: Estimar metabolismo basal</strong><br>
+10 × peso (kg) + 6.25 × altura (cm) − 5 × edad + 5
+</p>
+
+<p><strong>Paso 2: Multiplicar por actividad</strong><br>
+Sedentario: ×1.2 | Moderado: ×1.45 | Alto: ×1.6
+</p>
+
+<p><strong>Paso 3: Déficit recomendado</strong><br>
+−300 a −600 kcal según tolerancia
+</p>
+</div>
+
+<p>
+Proteína recomendada: 1.6–2.2 g por kg de peso corporal.
+Este rango preserva masa muscular y facilita recomposición corporal.
+</p>
+
+<p>
+Distribuye las calorías en alimentos que generen saciedad,
+control glucémico y estabilidad hormonal.
+</p>
+</div>
+</div>
+
+<!-- MODULO 4 -->
+<div class="module">
+<div class="module-header" onclick="toggle(this)">
+Protocolos Alimenticios Platino
 </div>
 <div class="module-content">
 <h3>Principios</h3>
 <ul>
-<li>Prioridad absoluta: entrenamiento de fuerza</li>
-<li>Progresión mecánica > fatiga metabólica</li>
-<li>4–6 ejercicios por sesión</li>
+<li>Priorizar proteína en cada comida</li>
+<li>Comer hasta saciedad fisiológica, no emocional</li>
+<li>Reducir ultraprocesados</li>
 </ul>
+
+<h3>Alimentos base</h3>
+<ul>
+<li>Huevos, carnes magras, pescado</li>
+<li>Arroz, papa, avena</li>
+<li>Verduras y frutas enteras</li>
+<li>Aceite de oliva, frutos secos</li>
+</ul>
+
+<h3>Estructura diaria ejemplo</h3>
+<ul>
+<li>3–5 comidas cada 3–4 horas</li>
+<li>Proteína distribuida equitativamente</li>
+<li>Carbohidratos alrededor del entrenamiento</li>
+</ul>
+</div>
+</div>
+
+<!-- MODULO 5 -->
+<div class="module">
+<div class="module-header" onclick="toggle(this)">
+Entrenamiento Platino en Gimnasio
+</div>
+<div class="module-content">
+<p>
+El entrenamiento de fuerza es la herramienta más poderosa
+para cambiar la composición corporal.
+</p>
 
 <h3>Rutina Base (4 días)</h3>
 <ul>
-<li>Día 1: Sentadilla, Press banca, Remo</li>
-<li>Día 2: Peso muerto, Press militar, Dominadas</li>
-<li>Día 3: Repetir Día 1</li>
-<li>Día 4: Repetir Día 2</li>
+<li>Día A: Sentadilla, Press banca, Remo</li>
+<li>Día B: Peso muerto, Press militar, Dominadas</li>
+<li>Día C: Repetir Día A</li>
+<li>Día D: Repetir Día B</li>
 </ul>
 
-<p>Series: 3–5 | Repeticiones: 5–8 | Descanso: 2–3 min</p>
+<p>
+Series: 3–5 | Repeticiones: 5–8 | Descanso: 2–3 minutos
+</p>
+
+<p>
+La progresión de cargas indica al cuerpo que el músculo es necesario.
+</p>
 </div>
 </div>
 
-<!-- MODULO FAQ -->
+<!-- MODULO 6 -->
 <div class="module">
 <div class="module-header" onclick="toggle(this)">
-Preguntas Frecuentes – Fitness y Buen Vivir
+Sueño, Ritmo Diario y Recuperación
 </div>
 <div class="module-content">
+<p>
+Dormir 7–9 horas consistentes regula hormonas clave
+relacionadas con el apetito y el uso de energía.
+</p>
 
-<p><strong>¿El cardio quema grasa?</strong><br>
-Es complementario. La grasa se oxida principalmente con balance energético negativo
-y masa muscular activa.</p>
+<p>
+La sincronización del sueño con la luz natural
+mejora el control metabólico.
+</p>
 
-<p><strong>¿Comer grasa engorda?</strong><br>
-No. El exceso calórico engorda. Las grasas son esenciales hormonalmente.</p>
+<p>
+Dormir mal no impide perder grasa,
+pero aumenta el costo psicológico y fisiológico del proceso.
+</p>
+</div>
+</div>
 
-<p><strong>¿La motivación es necesaria?</strong><br>
-No. Los sistemas superan a la motivación (Skinner).</p>
+<!-- MODULO 7 -->
+<div class="module">
+<div class="module-header" onclick="toggle(this)">
+Preguntas Frecuentes Platino
+</div>
+<div class="module-content">
+<p><strong>¿Necesito cardio?</strong><br>
+No es obligatorio. El déficit y la fuerza son suficientes.
+</p>
 
 <p><strong>¿Cuánto tiempo tarda el cambio?</strong><br>
-Cambios metabólicos: 2–4 semanas. Cambios visibles: 8–12 semanas.</p>
+Adaptaciones metabólicas: 2–4 semanas.<br>
+Cambios visibles: 8–12 semanas.
+</p>
 
+<p><strong>¿La motivación es necesaria?</strong><br>
+No. Los sistemas bien diseñados sustituyen la motivación.
+</p>
 </div>
+</div>
+
+<div class="footer">
+Programa Platino — Educación para la autonomía metabólica y el buen vivir.
 </div>
 
 </div>
 
 <script>
 const users = {
-    "Arq David": "A#7",
-    "Maestro Martines": "A#7",
-    "Amauri": "Leal"
+    "Platino": "2026",
+    "UsuarioDemo": "demo"
 };
 
 function login(){
