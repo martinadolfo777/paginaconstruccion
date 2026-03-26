@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programa de Optimización Humana</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+    --gold: #b8962e;
+    --text: #000000;
+    --border: #e5e5e5;
+    --bg-soft: #fafafa;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #ffffff;
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 25px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: var(--text);
+    font-weight: 500;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    text-align: center;
+    margin: 30px 0 40px;
+    font-weight: 500;
+    color: var(--text);
+}
+
+/* Acordeones modernos */
+.accordion-item {
+    border-bottom: 1px solid var(--border);
+}
+
+.accordion-btn {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 20px 0;
+    font-size: 20px;
+    font-family: 'Playfair Display', serif;
+    cursor: pointer;
+    text-align: left;
+    font-weight: 500;
+    transition: opacity 0.2s;
+    color: var(--text);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-btn:hover {
+    opacity: 0.7;
+}
+
+.accordion-btn::after {
+    content: '+';
+    font-size: 24px;
+    font-weight: 300;
+    transition: transform 0.2s;
+}
+
+.accordion-btn.active::after {
+    content: '−';
+}
+
+.panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+}
+
+.panel-content {
+    padding-bottom: 30px;
+    color: var(--text);
+}
+
+/* Estilos para contenido de módulos */
+.module-description {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.box-highlight {
+    background-color: var(--bg-soft);
+    border-left: 4px solid var(--gold);
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 0 8px 8px 0;
+}
+
+.box-fact {
+    border: 1px solid var(--border);
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.box-fact ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    border: 1px solid var(--border);
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: var(--bg-soft);
+    font-weight: 500;
+}
+
+/* Calculadora nutricional */
+.calc-box {
+    border: 1px solid var(--border);
+    padding: 20px;
+    border-radius: 8px;
+    background: var(--bg-soft);
+    margin: 20px 0;
+}
+
+.calc-box input, .calc-box select, .calc-box button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 16px;
+    color: var(--text);
+}
+
+.calc-box input::placeholder {
+    color: #888;
+}
+
+.calc-box button {
+    background: var(--gold);
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+    border: none;
+    transition: background 0.2s;
+}
+
+.calc-box button:hover {
+    background: #9f8028;
+}
+
+.result {
+    margin-top: 20px;
+    background: white;
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    line-height: 1.6;
+    color: var(--text);
+}
+
+.result strong {
+    color: inherit;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <span>Optimización Humana</span>
+        <span>Programa Integral</span>
+    </div>
+
+    <h1>Módulos de Desarrollo</h1>
+
+    <!-- Módulo Nutrición -->
+    <div class="accordion-item">
+        <button class="accordion-btn">Nutrición</button>
+        <div class="panel">
+            <div class="panel-content">
+                <p class="module-description">La nutrición regula energía, recuperación y composición corporal. La calidad de los alimentos impacta el metabolismo y las hormonas.</p>
+                
+                <div class="box-highlight">
+                    🔹 Alimentación estratégica: proteínas, carbohidratos, grasas y micronutrientes en función de objetivos.
+                </div>
+
+                <div class="box-fact">
+                    <ul>
+                        <li>Proteína: reparación y crecimiento muscular</li>
+                        <li>Carbohidratos: energía para entrenamiento y sistema nervioso</li>
+                        <li>Grasas: soporte hormonal y salud celular</li>
+                        <li>Micronutrientes: cofactores enzimáticos</li>
+                    </ul>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr><th>Nutriente</th><th>Función clave</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Proteína</td><td>Músculo, enzimas</td></tr>
+                        <tr><td>Carbohidratos</td><td>Energía inmediata</td></tr>
+                        <tr><td>Grasas</td><td>Hormonas, membranas</td></tr>
+                    </tbody>
+                </table>
+
+                <!-- CALCULADORA DE MACROS (con espaciado mejorado) -->
+                <div class="calc-box">
+                    <input type="number" id="peso" placeholder="Peso corporal (ej: 75)" step="any">
+                    <select id="unidad">
+                        <option value="kg">Kilogramos</option>
+                        <option value="lb">Libras</option>
+                    </select>
+                    <button type="button" id="calcularBtn">Calcular necesidades calóricas</button>
+                    <div id="resultadoMacros" class="result">
+                        <!-- Aquí se mostrarán los resultados con el nuevo formato espacioso -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Módulo Entrenamiento -->
+    <div class="accordion-item">
+        <button class="accordion-btn">Entrenamiento</button>
+        <div class="panel">
+            <div class="panel-content">
+                <p class="module-description">El entrenamiento induce adaptaciones físicas: fuerza, hipertrofia, resistencia y movilidad.</p>
+                <div class="box-highlight">
+                    🔹 Principio de sobrecarga progresiva: incrementar estímulo gradualmente para seguir mejorando.
+                </div>
+                <div class="box-fact">
+                    <ul>
+                        <li>Fuerza: cargas altas, pocas repeticiones</li>
+                        <li>Hipertrofia: volumen moderado, tensión mecánica</li>
+                        <li>Resistencia: trabajo aeróbico y metabólico</li>
+                        <li>Movilidad: amplitud articular y prevención</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Módulo Estilo de Vida -->
+    <div class="accordion-item">
+        <button class="accordion-btn">Estilo de Vida</button>
+        <div class="panel">
+            <div class="panel-content">
+                <p class="module-description">El estilo de vida determina la recuperación y la consistencia.</p>
+                <div class="box-highlight">
+                    🔹 Dormir bien es el mayor potenciador natural: regula hormonas, cognición y reparación.
+                </div>
+                <div class="box-fact">
+                    <ul>
+                        <li>Sueño: 7-9 horas de calidad</li>
+                        <li>Gestión del estrés: meditación, respiración</li>
+                        <li>Rutinas circadianas: luz solar al despertar</li>
+                        <li>Ambiente optimizado: temperatura, oscuridad</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Módulo Optimización Hormonal -->
+    <div class="accordion-item">
+        <button class="accordion-btn">Optimización Hormonal</button>
+        <div class="panel">
+            <div class="panel-content">
+                <p class="module-description">Las hormonas regulan el rendimiento, la composición corporal y el estado de ánimo.</p>
+                <div class="box-highlight">
+                    🔹 El equilibrio hormonal depende del entorno: nutrición, sueño, actividad física y manejo del estrés.
+                </div>
+                <table>
+                    <thead>
+                        <tr><th>Hormona</th><th>Función principal</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Testosterona</td><td>Fuerza, libido, masa muscular</td></tr>
+                        <tr><td>Cortisol</td><td>Respuesta al estrés (en exceso catabólico)</td></tr>
+                        <tr><td>Insulina</td><td>Metabolismo de nutrientes, sensibilidad celular</td></tr>
+                        <tr><td>Hormona del crecimiento</td><td>Recuperación, reparación tisular</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Módulo Biohacking -->
+    <div class="accordion-item">
+        <button class="accordion-btn">Biohacking</button>
+        <div class="panel">
+            <div class="panel-content">
+                <p class="module-description">Optimización mediante intervenciones controladas para mejorar el rendimiento humano.</p>
+                <div class="box-highlight">
+                    🔹 Pequeños cambios estratégicos → grandes resultados sostenibles.
+                </div>
+                <div class="box-fact">
+                    <ul>
+                        <li>Ayuno intermitente</li>
+                        <li>Suplementación específica (vitamina D, magnesio, creatina)</li>
+                        <li>Wearables y monitoreo de métricas</li>
+                        <li>Optimización del ambiente: luz, temperatura, sonido</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Sistema de acordeón con max-height transición
+    const accordionBtns = document.querySelectorAll('.accordion-btn');
+    
+    function closeAllPanels(exceptBtn = null) {
+        accordionBtns.forEach(btn => {
+            const panel = btn.nextElementSibling;
+            if (btn !== exceptBtn) {
+                btn.classList.remove('active');
+                if (panel) panel.style.maxHeight = null;
+            }
+        });
+    }
+    
+    accordionBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const panel = this.nextElementSibling;
+            const isOpen = panel.style.maxHeight && panel.style.maxHeight !== '0px';
+            
+            closeAllPanels(this);
+            
+            if (!isOpen) {
+                this.classList.add('active');
+                panel.style.maxHeight = panel.scrollHeight + 'px';
+            } else {
+                this.classList.remove('active');
+                panel.style.maxHeight = null;
+            }
+        });
+    });
+    
+    // Cálculo de macros (con formato mejorado para que el bloque tenga suficiente espacio)
+    function calcularMacros() {
+        const pesoInput = document.getElementById('peso');
+        const peso = parseFloat(pesoInput.value);
+        const unidad = document.getElementById('unidad').value;
+        const resultadoDiv = document.getElementById('resultadoMacros');
+        
+        if (isNaN(peso) || peso <= 0) {
+            resultadoDiv.innerHTML = '<span style="color: #b8962e;">⚠️ Ingresa un peso válido (mayor a 0).</span>';
+            return;
+        }
+        
+        // Convertir a libras
+        let lb = (unidad === 'kg') ? peso * 2.20462 : peso;
+        
+        // Fórmula base: mantenimiento = lb * 15 (estimación)
+        let mantenimiento = lb * 15;
+        let deficit = mantenimiento - 900;    // Déficit para pérdida de peso
+        let superavit = mantenimiento + 300;  // Superávit para ganancia muscular
+        
+        // Función que desglosa macros según kcal totales
+        function desgloseMacros(kcal) {
+            let proteinaGramos = lb * 0.82;        // ~0.82g por lb de peso
+            let kcalProteina = proteinaGramos * 4;
+            
+            let kcalRestantes = kcal - kcalProteina;
+            if (kcalRestantes < 0) kcalRestantes = 0;
+            
+            // Distribución: 30% carbos, 70% grasas del restante (ajuste flexible)
+            let kcalCarbos = kcalRestantes * 0.30;
+            let carbosGramos = kcalCarbos / 4;
+            
+            let kcalGrasas = kcalRestantes - kcalCarbos;
+            let grasasGramos = kcalGrasas / 9;
+            
+            return {
+                proteina: proteinaGramos,
+                kcalProteina: kcalProteina,
+                carbos: carbosGramos,
+                kcalCarbos: kcalCarbos,
+                grasas: grasasGramos,
+                kcalGrasas: kcalGrasas
+            };
+        }
+        
+        const macrosDeficit = desgloseMacros(deficit);
+        const macrosSuperavit = desgloseMacros(superavit);
+        
+        // Se genera el contenido con espaciado amplio mediante estilos en línea
+        resultadoDiv.innerHTML = `
+            <div style="
+                background: white;
+                border-radius: 12px;
+                padding: 25px;
+                margin: 0;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+                font-size: 16px;
+                line-height: 1.6;
+                word-break: break-word;
+            ">
+                <div style="margin-bottom: 24px;">
+                    <strong style="font-size: 18px;">🔻 PÉRDIDA DE PESO (Déficit)</strong><br>
+                    <strong style="font-size: 22px; color: #b8962e;">${deficit.toFixed(0)} kcal/día</strong><br>
+                    Proteína: ${macrosDeficit.proteina.toFixed(1)} g (${macrosDeficit.kcalProteina.toFixed(0)} kcal)<br>
+                    Carbohidratos: ${macrosDeficit.carbos.toFixed(1)} g (${macrosDeficit.kcalCarbos.toFixed(0)} kcal)<br>
+                    Grasas: ${macrosDeficit.grasas.toFixed(1)} g (${macrosDeficit.kcalGrasas.toFixed(0)} kcal)
+                </div>
+                <div style="margin-bottom: 24px;">
+                    <strong style="font-size: 18px;">🔺 GANANCIA MUSCULAR (Superávit)</strong><br>
+                    <strong style="font-size: 22px; color: #b8962e;">${superavit.toFixed(0)} kcal/día</strong><br>
+                    Proteína: ${macrosSuperavit.proteina.toFixed(1)} g (${macrosSuperavit.kcalProteina.toFixed(0)} kcal)<br>
+                    Carbohidratos: ${macrosSuperavit.carbos.toFixed(1)} g (${macrosSuperavit.kcalCarbos.toFixed(0)} kcal)<br>
+                    Grasas: ${macrosSuperavit.grasas.toFixed(1)} g (${macrosSuperavit.kcalGrasas.toFixed(0)} kcal)
+                </div>
+                <div style="margin-top: 16px; font-size: 13px; color: #666; border-top: 1px solid #eee; padding-top: 12px;">
+                    * Basado en mantenimiento estimado = peso(lb) × 15. Ajustar según actividad.
+                </div>
+            </div>
+        `;
+    }
+    
+    // Asignar evento al botón de cálculo
+    const calcBtn = document.getElementById('calcularBtn');
+    if (calcBtn) {
+        calcBtn.addEventListener('click', calcularMacros);
+    }
+    
+    // Permitir calcular con Enter en el campo peso
+    const pesoField = document.getElementById('peso');
+    if (pesoField) {
+        pesoField.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                calcularMacros();
+            }
+        });
+    }
+    
+    // Abrir primer módulo por defecto (Nutrición) para mostrar el cálculo inicialmente
+    const firstBtn = document.querySelector('.accordion-btn');
+    if (firstBtn) {
+        setTimeout(() => {
+            firstBtn.click();
+        }, 100);
+    }
+</script>
+
+</body>
+</html>
